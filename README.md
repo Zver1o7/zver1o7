@@ -1,4 +1,4 @@
-<img src="assets/header.svg" alt="Zver1o7 — game and server developer" />
+<img src="assets/header.svg?v=9" alt="Zver1o7 — game and server developer" />
 
 <div align="center">
 
@@ -11,7 +11,7 @@
 <br/>
 <br/>
 
-<img src="assets/terminal.svg" alt="terminal" />
+<img src="assets/terminal.svg?v=9" alt="terminal" />
 
 </div>
 
@@ -37,7 +37,7 @@ const zver: Developer = {
 - 📫 **Telegram:** [@Zver1o7](https://t.me/Zver1o7) &nbsp;&nbsp;**Discord:** `Zver1o7`
 
 <div align="center">
-  <img src="assets/divider.svg" alt="divider" />
+  <img src="assets/divider.svg?v=9" alt="divider" />
 </div>
 
 ## ⚡ Tech Stack
@@ -51,7 +51,7 @@ const zver: Developer = {
 | <p align="center"><img src="https://img.shields.io/badge/MySQL-Schemas-4479A1?style=flat-square&logo=mysql&logoColor=white" alt="MySQL" /> <img src="https://img.shields.io/badge/PostgreSQL-Queries-4169E1?style=flat-square&logo=postgresql&logoColor=white" alt="PostgreSQL" /> <img src="https://img.shields.io/badge/SQLite-Embedded-003B57?style=flat-square&logo=sqlite&logoColor=white" alt="SQLite" /> <img src="https://img.shields.io/badge/MongoDB-NoSQL-47A248?style=flat-square&logo=mongodb&logoColor=white" alt="MongoDB" /> <img src="https://img.shields.io/badge/Redis-Cache_%26_Queues-DC382D?style=flat-square&logo=redis&logoColor=white" alt="Redis" /> <img src="https://img.shields.io/badge/SQL-Reports-FF7A18?style=flat-square" alt="SQL" /></p> | <p align="center"><img src="https://img.shields.io/badge/Git-Versioning-F05032?style=flat-square&logo=git&logoColor=white" alt="Git" /> <img src="https://img.shields.io/badge/GitHub_Actions-CI%2FCD-2088FF?style=flat-square&logo=githubactions&logoColor=white" alt="Actions" /> <img src="https://img.shields.io/badge/Docker-Containers-2496ED?style=flat-square&logo=docker&logoColor=white" alt="Docker" /> <img src="https://img.shields.io/badge/Linux-Servers-FCC624?style=flat-square&logo=linux&logoColor=black" alt="Linux" /> <img src="https://img.shields.io/badge/Nginx-Reverse_Proxy-009639?style=flat-square&logo=nginx&logoColor=white" alt="Nginx" /> <img src="https://img.shields.io/badge/VS_Code-IDE-007ACC?style=flat-square&logo=visualstudiocode&logoColor=white" alt="VS Code" /> <img src="https://img.shields.io/badge/PowerShell-Automation-5391FE?style=flat-square&logo=powershell&logoColor=white" alt="PowerShell" /> <img src="https://img.shields.io/badge/Bash-Scripting-4EAA25?style=flat-square&logo=gnubash&logoColor=white" alt="Bash" /></p> |
 
 <div align="center">
-  <img src="assets/divider.svg" alt="divider" />
+  <img src="assets/divider.svg?v=9" alt="divider" />
 </div>
 
 ## 🔥 Услуги под заказ
@@ -95,7 +95,7 @@ const zver: Developer = {
 </div>
 
 <div align="center">
-  <img src="assets/divider.svg" alt="divider" />
+  <img src="assets/divider.svg?v=9" alt="divider" />
 </div>
 
 ## 📊 Статистика
@@ -125,19 +125,19 @@ const zver: Developer = {
 -->
 
 <div align="center">
-  <img src="assets/divider.svg" alt="divider" />
+  <img src="assets/divider.svg?v=9" alt="divider" />
 </div>
 
 ## 🦊 Охота за контрибуциями
 
 <div align="center">
-  <img src="assets/fox-run.svg" alt="Zver1o7 — fox run: лис прыгает через ящики и догоняет зайца" />
+  <img src="assets/fox-run.svg?v=9" alt="Zver1o7 — fox run: лис прыгает через ящики и догоняет зайца" />
 </div>
 
 </div>
 
 <div align="center">
-  <img src="assets/divider.svg" alt="divider" />
+  <img src="assets/divider.svg?v=9" alt="divider" />
 </div>
 
 ## 📡 Контакты
