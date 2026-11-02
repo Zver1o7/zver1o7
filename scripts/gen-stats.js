@@ -11,10 +11,11 @@ const USER = process.env.USER_NAME || 'Zver1o7';
 const TOKEN = process.env.GITHUB_TOKEN || '';
 const API = 'https://api.github.com';
 
+// Заголовки БЕЗ токена: все данные публичные, а токен Actions ограничен одним репо.
+// (без токена видны ВСЕ репозитории пользователя — иначе Python/другие репо теряются)
 const headers = {
   Accept: 'application/vnd.github+json',
   'User-Agent': 'profile-stats-generator',
-  ...(TOKEN ? { Authorization: `Bearer ${TOKEN}` } : {}),
 };
 
 async function jget(url) {
