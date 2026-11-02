@@ -1,0 +1,183 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="300" viewBox="0 0 900 300" role="img" aria-label="ZVER1O7 — game developer">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0d1117"/>
+      <stop offset="1" stop-color="#1f1105"/>
+    </linearGradient>
+    <linearGradient id="titleGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ffd8a8"/>
+      <stop offset="0.45" stop-color="#ff9e2c"/>
+      <stop offset="1" stop-color="#ff3d00"/>
+    </linearGradient>
+    <radialGradient id="horizonGlow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#ff7a18" stop-opacity="0.5"/>
+      <stop offset="1" stop-color="#ff7a18" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="titleGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="6" result="b">
+        <animate attributeName="stdDeviation" values="4;9;4" dur="3.2s" repeatCount="indefinite"/>
+      </feGaussianBlur>
+      <feMerge>
+        <feMergeNode in="b"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="foxHalo" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="0" stdDeviation="8" flood-color="#ff7a18" flood-opacity="0.5">
+        <animate attributeName="flood-opacity" values="0.35;0.65;0.35" dur="3.5s" repeatCount="indefinite"/>
+      </feDropShadow>
+    </filter>
+  </defs>
+
+  <rect width="900" height="300" fill="url(#bg)"/>
+
+  <!-- embers -->
+  <g>
+    <circle cx="100" cy="290" r="2.2" fill="#ffb347" opacity="0">
+      <animate attributeName="cy" values="295;30" dur="7.5s" begin="0s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0;0.85;0" keyTimes="0;0.18;1" dur="7.5s" begin="0s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="170" cy="290" r="1.6" fill="#ff7a18" opacity="0">
+      <animate attributeName="cy" values="295;30" dur="9s" begin="1.5s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0;0.85;0" keyTimes="0;0.18;1" dur="9s" begin="1.5s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="260" cy="290" r="2.8" fill="#ffd8a8" opacity="0">
+      <animate attributeName="cy" values="295;30" dur="6.5s" begin="3s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0;0.85;0" keyTimes="0;0.18;1" dur="6.5s" begin="3s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="340" cy="290" r="1.8" fill="#ff7a18" opacity="0">
+      <animate attributeName="cy" values="295;30" dur="8s" begin="0.8s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0;0.85;0" keyTimes="0;0.18;1" dur="8s" begin="0.8s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="470" cy="290" r="2.4" fill="#ffb347" opacity="0">
+      <animate attributeName="cy" values="295;30" dur="7s" begin="2.2s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0;0.85;0" keyTimes="0;0.18;1" dur="7s" begin="2.2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="560" cy="290" r="1.5" fill="#ffd8a8" opacity="0">
+      <animate attributeName="cy" values="295;30" dur="10s" begin="4s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0;0.85;0" keyTimes="0;0.18;1" dur="10s" begin="4s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="640" cy="290" r="2.6" fill="#ff7a18" opacity="0">
+      <animate attributeName="cy" values="295;30" dur="8.5s" begin="1s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0;0.85;0" keyTimes="0;0.18;1" dur="8.5s" begin="1s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="730" cy="290" r="1.7" fill="#ffb347" opacity="0">
+      <animate attributeName="cy" values="295;30" dur="7.2s" begin="2.8s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0;0.85;0" keyTimes="0;0.18;1" dur="7.2s" begin="2.8s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="820" cy="290" r="2.1" fill="#ff7a18" opacity="0">
+      <animate attributeName="cy" values="295;30" dur="9.5s" begin="0.5s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0;0.85;0" keyTimes="0;0.18;1" dur="9.5s" begin="0.5s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+
+  <!-- horizon glow -->
+  <ellipse cx="450" cy="207" rx="440" ry="34" fill="url(#horizonGlow)">
+    <animate attributeName="opacity" values="0.75;1;0.75" dur="5s" repeatCount="indefinite"/>
+  </ellipse>
+
+  <!-- perspective grid: verticals -->
+  <g stroke="#ff7a18" stroke-width="1" stroke-opacity="0.32">
+    <line x1="450" y1="205" x2="-70" y2="300"/>
+    <line x1="450" y1="205" x2="50" y2="300"/>
+    <line x1="450" y1="205" x2="150" y2="300"/>
+    <line x1="450" y1="205" x2="250" y2="300"/>
+    <line x1="450" y1="205" x2="350" y2="300"/>
+    <line x1="450" y1="205" x2="450" y2="300"/>
+    <line x1="450" y1="205" x2="550" y2="300"/>
+    <line x1="450" y1="205" x2="650" y2="300"/>
+    <line x1="450" y1="205" x2="750" y2="300"/>
+    <line x1="450" y1="205" x2="850" y2="300"/>
+    <line x1="450" y1="205" x2="970" y2="300"/>
+  </g>
+
+  <!-- perspective grid: moving horizontals -->
+  <g stroke="#ff9e2c" stroke-width="1.3">
+    <line x1="0" x2="900" y1="206" y2="206" opacity="0">
+      <animate attributeName="y1" values="206;300" dur="4s" begin="0s" repeatCount="indefinite" calcMode="spline" keySplines="0.55 0 0.9 0.4" keyTimes="0;1"/>
+      <animate attributeName="y2" values="206;300" dur="4s" begin="0s" repeatCount="indefinite" calcMode="spline" keySplines="0.55 0 0.9 0.4" keyTimes="0;1"/>
+      <animate attributeName="opacity" values="0;0.55;0.4;0" keyTimes="0;0.15;0.75;1" dur="4s" begin="0s" repeatCount="indefinite"/>
+    </line>
+    <line x1="0" x2="900" y1="206" y2="206" opacity="0">
+      <animate attributeName="y1" values="206;300" dur="4s" begin="0.8s" repeatCount="indefinite" calcMode="spline" keySplines="0.55 0 0.9 0.4" keyTimes="0;1"/>
+      <animate attributeName="y2" values="206;300" dur="4s" begin="0.8s" repeatCount="indefinite" calcMode="spline" keySplines="0.55 0 0.9 0.4" keyTimes="0;1"/>
+      <animate attributeName="opacity" values="0;0.55;0.4;0" keyTimes="0;0.15;0.75;1" dur="4s" begin="0.8s" repeatCount="indefinite"/>
+    </line>
+    <line x1="0" x2="900" y1="206" y2="206" opacity="0">
+      <animate attributeName="y1" values="206;300" dur="4s" begin="1.6s" repeatCount="indefinite" calcMode="spline" keySplines="0.55 0 0.9 0.4" keyTimes="0;1"/>
+      <animate attributeName="y2" values="206;300" dur="4s" begin="1.6s" repeatCount="indefinite" calcMode="spline" keySplines="0.55 0 0.9 0.4" keyTimes="0;1"/>
+      <animate attributeName="opacity" values="0;0.55;0.4;0" keyTimes="0;0.15;0.75;1" dur="4s" begin="1.6s" repeatCount="indefinite"/>
+    </line>
+    <line x1="0" x2="900" y1="206" y2="206" opacity="0">
+      <animate attributeName="y1" values="206;300" dur="4s" begin="2.4s" repeatCount="indefinite" calcMode="spline" keySplines="0.55 0 0.9 0.4" keyTimes="0;1"/>
+      <animate attributeName="y2" values="206;300" dur="4s" begin="2.4s" repeatCount="indefinite" calcMode="spline" keySplines="0.55 0 0.9 0.4" keyTimes="0;1"/>
+      <animate attributeName="opacity" values="0;0.55;0.4;0" keyTimes="0;0.15;0.75;1" dur="4s" begin="2.4s" repeatCount="indefinite"/>
+    </line>
+    <line x1="0" x2="900" y1="206" y2="206" opacity="0">
+      <animate attributeName="y1" values="206;300" dur="4s" begin="3.2s" repeatCount="indefinite" calcMode="spline" keySplines="0.55 0 0.9 0.4" keyTimes="0;1"/>
+      <animate attributeName="y2" values="206;300" dur="4s" begin="3.2s" repeatCount="indefinite" calcMode="spline" keySplines="0.55 0 0.9 0.4" keyTimes="0;1"/>
+      <animate attributeName="opacity" values="0;0.55;0.4;0" keyTimes="0;0.15;0.75;1" dur="4s" begin="3.2s" repeatCount="indefinite"/>
+    </line>
+  </g>
+
+  <!-- low-poly fox -->
+  <g transform="translate(652,50) scale(0.95)" filter="url(#foxHalo)">
+    <!-- ears -->
+    <g>
+      <animateTransform attributeName="transform" type="rotate" values="0 70 55;0 70 55;-6 70 55;0 70 55;0 70 55" keyTimes="0;0.72;0.78;0.84;1" dur="7s" begin="0s" repeatCount="indefinite"/>
+      <polygon points="52,60 66,6 92,48" fill="#e8590c" stroke="#0d1117" stroke-width="1" stroke-linejoin="round"/>
+      <polygon points="59,50 67,20 84,45" fill="#3d1408" stroke="#0d1117" stroke-width="1" stroke-linejoin="round"/>
+    </g>
+    <g>
+      <animateTransform attributeName="transform" type="rotate" values="0 130 55;0 130 55;6 130 55;0 130 55;0 130 55" keyTimes="0;0.72;0.78;0.84;1" dur="7s" begin="3.5s" repeatCount="indefinite"/>
+      <polygon points="148,60 134,6 108,48" fill="#e8590c" stroke="#0d1117" stroke-width="1" stroke-linejoin="round"/>
+      <polygon points="141,50 133,20 116,45" fill="#3d1408" stroke="#0d1117" stroke-width="1" stroke-linejoin="round"/>
+    </g>
+    <!-- face facets -->
+    <polygon points="40,62 70,58 100,32" fill="#ff9e2c" stroke="#0d1117" stroke-width="1" stroke-linejoin="round"/>
+    <polygon points="160,62 130,58 100,32" fill="#ff9e2c" stroke="#0d1117" stroke-width="1" stroke-linejoin="round"/>
+    <polygon points="100,32 70,58 130,58" fill="#ffc078" stroke="#0d1117" stroke-width="1" stroke-linejoin="round"/>
+    <polygon points="40,62 70,58 100,104" fill="#fd7e14" stroke="#0d1117" stroke-width="1" stroke-linejoin="round"/>
+    <polygon points="160,62 130,58 100,104" fill="#fd7e14" stroke="#0d1117" stroke-width="1" stroke-linejoin="round"/>
+    <polygon points="40,62 56,118 100,104" fill="#ffe8cc" stroke="#0d1117" stroke-width="1" stroke-linejoin="round"/>
+    <polygon points="160,62 144,118 100,104" fill="#ffe8cc" stroke="#0d1117" stroke-width="1" stroke-linejoin="round"/>
+    <polygon points="56,118 100,142 100,104" fill="#fff3e0" stroke="#0d1117" stroke-width="1" stroke-linejoin="round"/>
+    <polygon points="144,118 100,142 100,104" fill="#fff3e0" stroke="#0d1117" stroke-width="1" stroke-linejoin="round"/>
+    <polygon points="91,126 109,126 100,141" fill="#2b1105" stroke="#0d1117" stroke-width="1" stroke-linejoin="round"/>
+    <!-- eyes (blink) -->
+    <ellipse cx="76" cy="78" rx="6" ry="4.5" fill="#2b1105">
+      <animate attributeName="ry" values="4.5;4.5;0.5;4.5" keyTimes="0;0.88;0.94;1" dur="4.5s" repeatCount="indefinite"/>
+    </ellipse>
+    <ellipse cx="124" cy="78" rx="6" ry="4.5" fill="#2b1105">
+      <animate attributeName="ry" values="4.5;4.5;0.5;4.5" keyTimes="0;0.88;0.94;1" dur="4.5s" repeatCount="indefinite"/>
+    </ellipse>
+    <circle cx="74" cy="76" r="1.3" fill="#ffd8a8"/>
+    <circle cx="122" cy="76" r="1.3" fill="#ffd8a8"/>
+  </g>
+
+  <!-- HUD top-left -->
+  <text x="34" y="52" font-family="Consolas, 'Courier New', monospace" font-size="13" letter-spacing="2" fill="#8b949e">// ZVER1O7 :: PROFILE.EXE</text>
+  <rect x="298" y="40" width="8" height="14" fill="#ff9e2c">
+    <animate attributeName="opacity" values="1;0;1" dur="1.2s" repeatCount="indefinite"/>
+  </rect>
+
+  <!-- title -->
+  <text x="52" y="132" font-family="Consolas, 'Courier New', monospace" font-size="74" font-weight="bold" letter-spacing="3" fill="url(#titleGrad)" filter="url(#titleGlow)">ZVER1O7</text>
+  <text x="52" y="172" font-family="Consolas, 'Courier New', monospace" font-size="24" font-weight="bold" letter-spacing="10" fill="#ffd8a8">GAME DEVELOPER</text>
+  <text x="52" y="198" font-family="Consolas, 'Courier New', monospace" font-size="15" letter-spacing="2.5" fill="#ffb347" opacity="0.9">UE5 &#183; GTA V &#183; WoW &#183; CS2 &#183; WEB &#183; DB</text>
+
+  <!-- HUD bottom -->
+  <text x="34" y="285" font-family="Consolas, 'Courier New', monospace" font-size="12" letter-spacing="2" fill="#8b949e" opacity="0.85">LOC: LOS SANTOS &#183; SAN ANDREAS</text>
+  <text x="866" y="285" text-anchor="end" font-family="Consolas, 'Courier New', monospace" font-size="12" letter-spacing="2" fill="#3fb950">
+    STATUS: ONLINE
+    <animate attributeName="opacity" values="0.5;1;0.5" dur="2.5s" repeatCount="indefinite"/>
+  </text>
+  <circle cx="736" cy="281" r="4" fill="#3fb950">
+    <animate attributeName="opacity" values="0.5;1;0.5" dur="2.5s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- marching neon border -->
+  <rect x="7" y="7" width="886" height="286" rx="14" fill="none" stroke="#ff7a18" stroke-width="1.5" stroke-dasharray="18 12" stroke-opacity="0.55">
+    <animate attributeName="stroke-dashoffset" values="0;-60" dur="3s" repeatCount="indefinite"/>
+  </rect>
+</svg>
