@@ -1,0 +1,53 @@
+name: Generate Stats
+
+on:
+  schedule:
+    - cron: "0 * * * *" # каждый час
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+      - master
+    paths:
+      - ".github/workflows/stats.yml"
+      - "scripts/gen-stats.js"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Generate SVG cards
+        run: node scripts/gen-stats.js
+        env:
+          USER_NAME: ${{ github.repository_owner }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Commit cards into repo
+        run: |
+          mkdir -p assets/generated
+          cp out/stats.svg assets/generated/stats.svg
+          cp out/langs.svg assets/generated/langs.svg
+          rm -rf out
+          ts=$(date +%s%3N)
+          sed -i -E "s/(assets\/generated\/(stats|langs)\.svg\?v=)[0-9]+/\1${ts}/g" README.md
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/generated README.md
+          if git diff --cached --quiet; then
+            echo "No changes"
+          else
+            git commit -m "Статистика: авто-обновление"
+            git push
+          fi
