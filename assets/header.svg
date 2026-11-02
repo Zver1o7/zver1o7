@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="900" height="300" viewBox="0 0 900 300" role="img" aria-label="Zver1o7 — game and server developer">
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="300" viewBox="0 0 900 300" role="img" aria-label="Zver1o7 — angry fox, game and server developer">
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0" stop-color="#0d1117"/>
@@ -36,6 +36,11 @@
     <filter id="foxHalo" x="-40%" y="-40%" width="180%" height="180%">
       <feDropShadow dx="0" dy="0" stdDeviation="10" flood-color="#ff7a18" flood-opacity="0.55">
         <animate attributeName="flood-opacity" values="0.35;0.7;0.35" dur="3.5s" repeatCount="indefinite"/>
+      </feDropShadow>
+    </filter>
+    <filter id="pupilGlow" x="-200%" y="-200%" width="500%" height="500%">
+      <feDropShadow dx="0" dy="0" stdDeviation="3" flood-color="#ffb347" flood-opacity="0.9">
+        <animate attributeName="flood-opacity" values="0.4;1;0.4" dur="2s" repeatCount="indefinite"/>
       </feDropShadow>
     </filter>
   </defs>
@@ -131,52 +136,105 @@
     </line>
   </g>
 
-  <!-- sparkle stars near fox -->
-  <path d="M586 86 l3 7 7 3 -7 3 -3 7 -3 -7 -7 -3 7 -3 z" fill="#ffd8a8">
+  <!-- sparkles -->
+  <path d="M596 84 l3 7 7 3 -7 3 -3 7 -3 -7 -7 -3 7 -3 z" fill="#ffd8a8">
     <animate attributeName="opacity" values="0.2;1;0.2" dur="2.6s" begin="0s" repeatCount="indefinite"/>
   </path>
-  <path d="M812 150 l2.5 6 6 2.5 -6 2.5 -2.5 6 -2.5 -6 -6 -2.5 6 -2.5 z" fill="#ffb347">
+  <path d="M856 148 l2.5 6 6 2.5 -6 2.5 -2.5 6 -2.5 -6 -6 -2.5 6 -2.5 z" fill="#ffb347">
     <animate attributeName="opacity" values="0.2;1;0.2" dur="3.4s" begin="1.2s" repeatCount="indefinite"/>
   </path>
 
-  <!-- sitting neon fox -->
-  <g transform="translate(600,52) scale(0.85)" filter="url(#foxHalo)">
-    <g transform="translate(120,215)">
-      <animateTransform attributeName="transform" type="scale" additive="sum" values="1 1;1.015 1.012;1 1" dur="4s" repeatCount="indefinite"/>
-      <g transform="translate(-120,-215)">
-        <!-- tail -->
-        <path d="M172 202 Q240 194 226 120 Q222 92 198 84 L190 96 Q210 108 214 150 Q206 190 164 202 Z" fill="#ff7a18" stroke="#2b1105" stroke-width="1.5" stroke-linejoin="round"/>
-        <path d="M198 84 Q222 92 226 120 Q221 102 210 94 Q203 88 198 84 Z" fill="#fff3e0" stroke="#2b1105" stroke-width="1" stroke-linejoin="round"/>
-        <!-- haunches -->
-        <path d="M54 194 Q32 176 38 148 Q52 140 66 152 Q72 184 78 212 Q62 210 54 194 Z" fill="#d9480f" stroke="#2b1105" stroke-width="1.5" stroke-linejoin="round"/>
-        <path d="M186 194 Q208 176 202 148 Q188 140 174 152 Q168 184 162 212 Q178 210 186 194 Z" fill="#d9480f" stroke="#2b1105" stroke-width="1.5" stroke-linejoin="round"/>
-        <!-- body -->
-        <path d="M96 96 Q56 130 54 194 Q60 208 76 210 L164 210 Q180 208 186 194 Q184 130 144 96 Q120 106 96 96 Z" fill="url(#foxGrad)" stroke="#2b1105" stroke-width="1.5" stroke-linejoin="round"/>
-        <!-- chest bib -->
-        <path d="M104 116 Q120 108 136 116 Q142 158 138 198 Q120 206 102 198 Q98 158 104 116 Z" fill="#fff3e0" opacity="0.95"/>
-        <!-- front legs + paws -->
-        <rect x="104" y="118" width="9" height="80" rx="4" fill="#e8590c" stroke="#2b1105" stroke-width="1"/>
-        <rect x="127" y="118" width="9" height="80" rx="4" fill="#e8590c" stroke="#2b1105" stroke-width="1"/>
-        <rect x="102.5" y="194" width="12" height="13" rx="5" fill="#fff3e0" stroke="#2b1105" stroke-width="1"/>
-        <rect x="125.5" y="194" width="12" height="13" rx="5" fill="#fff3e0" stroke="#2b1105" stroke-width="1"/>
-        <!-- head -->
-        <g transform="translate(58,4) scale(0.62)">
-          <path d="M64 6 L30 68 Q22 96 40 108 Q62 124 88 158 Q100 168 112 158 Q138 124 160 108 Q178 96 170 68 L136 6 L126 60 Q100 40 74 60 Z" fill="url(#foxGrad)" stroke="#2b1105" stroke-width="2.4" stroke-linejoin="round"/>
-          <polygon points="66,16 52,54 80,50" fill="#5a2812" opacity="0.9"/>
-          <polygon points="134,16 148,54 120,50" fill="#5a2812" opacity="0.9"/>
-          <path d="M74 116 Q100 108 126 116 Q112 150 100 162 Q88 150 74 116 Z" fill="#fff3e0" opacity="0.92"/>
-          <g transform="translate(64,88)">
-            <path d="M-12 -2 Q0 -10 12 -2 Q0 6 -12 -2 Z" fill="#1a0d06"/>
-            <circle cx="-4" cy="-1" r="1.6" fill="#ffd8a8"/>
-            <animateTransform attributeName="transform" type="scale" additive="sum" values="1 1;1 1;1 0.08;1 1" keyTimes="0;0.88;0.93;1" dur="5s" repeatCount="indefinite"/>
+  <!-- ANGRY FOX HEAD -->
+  <g transform="translate(630,22) scale(0.97)" filter="url(#foxHalo)">
+    <g transform="translate(100,95)">
+      <animateTransform attributeName="transform" type="scale" additive="sum" values="1 1;1.012 1.008;1 1" dur="4s" repeatCount="indefinite"/>
+      <g transform="translate(-100,-95)">
+        <g>
+          <!-- shake: quick angry head-shake every 5s -->
+          <animateTransform attributeName="transform" type="rotate"
+            values="0 100 95;0 100 95;-2 100 95;1.5 100 95;-1 100 95;0 100 95;0 100 95"
+            keyTimes="0;0.02;0.05;0.08;0.11;0.14;1" dur="5s" repeatCount="indefinite"/>
+
+          <!-- ears (twitch) -->
+          <g>
+            <animateTransform attributeName="transform" type="rotate" values="0 44 62;0 44 62;-7 44 62;0 44 62;0 44 62" keyTimes="0;0.7;0.76;0.82;1" dur="5.5s" begin="0s" repeatCount="indefinite"/>
+            <polygon points="28,4 58,60 14,68" fill="#ff7a18" stroke="#2b1105" stroke-width="2.5" stroke-linejoin="round"/>
+            <polygon points="30,14 52,54 24,60" fill="#5a2812"/>
           </g>
-          <g transform="translate(136,88)">
-            <path d="M-12 -2 Q0 -10 12 -2 Q0 6 -12 -2 Z" fill="#1a0d06"/>
-            <circle cx="4" cy="-1" r="1.6" fill="#ffd8a8"/>
-            <animateTransform attributeName="transform" type="scale" additive="sum" values="1 1;1 1;1 0.08;1 1" keyTimes="0;0.88;0.93;1" dur="5s" repeatCount="indefinite"/>
+          <g>
+            <animateTransform attributeName="transform" type="rotate" values="0 156 62;0 156 62;7 156 62;0 156 62;0 156 62" keyTimes="0;0.7;0.76;0.82;1" dur="5.5s" begin="2.7s" repeatCount="indefinite"/>
+            <polygon points="172,4 142,60 186,68" fill="#ff7a18" stroke="#2b1105" stroke-width="2.5" stroke-linejoin="round"/>
+            <polygon points="170,14 148,54 176,60" fill="#5a2812"/>
           </g>
-          <path d="M91 136 Q100 132 109 136 L103 146 Q100 149 97 146 Z" fill="#2b1105"/>
-          <path d="M64 6 L30 68 Q22 96 40 108 Q62 124 88 158 Q100 168 112 158 Q138 124 160 108 Q178 96 170 68 L136 6 L126 60 Q100 40 74 60 Z" fill="none" stroke="#ffd8a8" stroke-width="2.2" stroke-linejoin="round" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100" opacity="0.9">
+
+          <!-- face -->
+          <path d="M100 44 Q66 46 42 66 L20 94 L46 102 L38 126 L68 140 L86 166 Q100 176 114 166 L132 140 L162 126 L154 102 L180 94 L158 66 Q134 46 100 44 Z"
+            fill="url(#foxGrad)" stroke="#2b1105" stroke-width="2.5" stroke-linejoin="round"/>
+
+          <!-- angry eye masks -->
+          <ellipse cx="60" cy="98" rx="18" ry="12" fill="#b3400f" opacity="0.4"/>
+          <ellipse cx="140" cy="98" rx="18" ry="12" fill="#b3400f" opacity="0.4"/>
+
+          <!-- snarl brows -->
+          <path d="M46 82 L88 100" stroke="#8a3410" stroke-width="7" stroke-linecap="round"/>
+          <path d="M154 82 L112 100" stroke="#8a3410" stroke-width="7" stroke-linecap="round"/>
+
+          <!-- eyes: glare + glowing pupils + blink -->
+          <g transform="translate(65,97)">
+            <path d="M-15 -6 L9 -6 L13 6 L-5 8 Z" fill="#1a0d06"/>
+            <circle cx="0" cy="1" r="3.5" fill="#ffb347" filter="url(#pupilGlow)">
+              <animate attributeName="r" values="3.5;4.6;3.5" dur="2s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="1" cy="0" r="1" fill="#fff8ef"/>
+            <animateTransform attributeName="transform" type="scale" additive="sum" values="1 1;1 1;1 0.08;1 1" keyTimes="0;0.9;0.95;1" dur="6s" repeatCount="indefinite"/>
+          </g>
+          <g transform="translate(135,97)">
+            <path d="M15 -6 L-9 -6 L-13 6 L5 8 Z" fill="#1a0d06"/>
+            <circle cx="0" cy="1" r="3.5" fill="#ffb347" filter="url(#pupilGlow)">
+              <animate attributeName="r" values="3.5;4.6;3.5" dur="2s" begin="0.4s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="-1" cy="0" r="1" fill="#fff8ef"/>
+            <animateTransform attributeName="transform" type="scale" additive="sum" values="1 1;1 1;1 0.08;1 1" keyTimes="0;0.9;0.95;1" dur="6s" repeatCount="indefinite"/>
+          </g>
+
+          <!-- muzzle -->
+          <path d="M72 122 Q100 114 128 122 L122 154 Q100 164 78 154 Z" fill="#fff3e0" opacity="0.95"/>
+
+          <!-- nose (sniffs) -->
+          <g transform="translate(100,118)">
+            <animateTransform attributeName="transform" type="scale" additive="sum" values="1;1.16;1" dur="1.8s" repeatCount="indefinite"/>
+            <path d="M-12 -3 Q0 -7 12 -3 L6 5 Q0 8 -6 5 Z" fill="#1a0d06"/>
+          </g>
+
+          <!-- open snarl -->
+          <path d="M74 128 Q100 124 126 128 Q124 144 116 150 Q100 156 84 150 Q76 144 74 128 Z" fill="#3d150a"/>
+          <!-- fangs -->
+          <path d="M84 128 L91 128 L87 138 Z" fill="#fff8f0"/>
+          <path d="M109 128 L116 128 L112 138 Z" fill="#fff8f0"/>
+          <path d="M96 127 L104 127 L100 134 Z" fill="#fff8f0"/>
+          <path d="M90 150 L97 150 L93 144 Z" fill="#fff8f0"/>
+          <path d="M103 150 L110 150 L106 144 Z" fill="#fff8f0"/>
+
+          <!-- fury wisps rising from the snarl -->
+          <circle cx="78" cy="128" r="2.5" fill="#ffd8a8" opacity="0">
+            <animate attributeName="cy" values="124;120;98" keyTimes="0;0.2;1" dur="2.8s" begin="0s" repeatCount="indefinite"/>
+            <animate attributeName="cx" values="78;72;62" keyTimes="0;0.2;1" dur="2.8s" begin="0s" repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="0;0.75;0" keyTimes="0;0.25;1" dur="2.8s" begin="0s" repeatCount="indefinite"/>
+          </circle>
+          <circle cx="122" cy="128" r="2.5" fill="#ffd8a8" opacity="0">
+            <animate attributeName="cy" values="124;120;96" keyTimes="0;0.2;1" dur="2.8s" begin="0.9s" repeatCount="indefinite"/>
+            <animate attributeName="cx" values="122;128;138" keyTimes="0;0.2;1" dur="2.8s" begin="0.9s" repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="0;0.75;0" keyTimes="0;0.25;1" dur="2.8s" begin="0.9s" repeatCount="indefinite"/>
+          </circle>
+          <circle cx="100" cy="128" r="2" fill="#ffb347" opacity="0">
+            <animate attributeName="cy" values="124;118;96" keyTimes="0;0.2;1" dur="2.8s" begin="1.8s" repeatCount="indefinite"/>
+            <animate attributeName="cx" values="100;96;94" keyTimes="0;0.2;1" dur="2.8s" begin="1.8s" repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="0;0.7;0" keyTimes="0;0.25;1" dur="2.8s" begin="1.8s" repeatCount="indefinite"/>
+          </circle>
+
+          <!-- draw-on neon outline -->
+          <path d="M100 44 Q66 46 42 66 L20 94 L46 102 L38 126 L68 140 L86 166 Q100 176 114 166 L132 140 L162 126 L154 102 L180 94 L158 66 Q134 46 100 44 Z"
+            fill="none" stroke="#ffd8a8" stroke-width="2.2" stroke-linejoin="round" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100" opacity="0.9">
             <animate attributeName="stroke-dashoffset" values="100;0" dur="2.2s" begin="0.4s" fill="freeze"/>
           </path>
         </g>

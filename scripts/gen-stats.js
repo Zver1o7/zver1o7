@@ -94,39 +94,147 @@ function buildStatsCard({ stars, repos, forks, commits, followers }) {
 </svg>`;
 }
 
-const PALETTE = ['#ff9e2c', '#ff7a18', '#e8590c', '#ffb347', '#ffd8a8', '#c77b2a', '#ff3d00', '#d9a066'];
+const PALETTE = ['#ff9e2c', '#ff7a18', '#e8590c', '#ffb347', '#ffd8a8', '#c77b2a', '#ff3d00', '#d9a066', '#ffd166', '#b45309'];
 
-function buildLangsCard(topLangs) {
-  if (!topLangs.length) {
-    return `<svg xmlns="http://www.w3.org/2000/svg" width="920" height="120" viewBox="0 0 920 120" role="img" aria-label="languages">
-  <rect width="920" height="120" rx="14" fill="#0d1117" stroke="#ff7a18" stroke-opacity="0.35" stroke-width="1.5"/>
-  <text x="460" y="60" text-anchor="middle" font-family="${MONO}" font-size="16" letter-spacing="3" fill="#ffb347">NO LANGUAGE DATA YET &#8212; COMMITS INCOMING &#8230;</text>
-</svg>`;
-  }
-  const total = topLangs.reduce((s, x) => s + x[1], 0);
-  const rows = topLangs.length;
-  const H = 56 + rows * 42 + 14;
-  const date = new Date().toISOString().slice(0, 10);
-  let body = '';
-  topLangs.forEach(([lang, bytes], i) => {
-    const cy = 56 + i * 42 + 21;
-    const pct = (bytes / total) * 100;
-    const w = Math.max(10, Math.round((bytes / topLangs[0][1]) * 520));
-    const name = lang.length > 16 ? lang.slice(0, 15) + '\u2026' : lang;
-    const color = PALETTE[i % PALETTE.length];
-    body +=
-      `<text x="36" y="${cy + 5}" font-family="${MONO}" font-size="16" fill="#e6edf3">${esc(name)}</text>` +
-      `<rect x="210" y="${cy - 8}" width="520" height="16" rx="8" fill="#21262d"/>` +
-      `<rect x="210" y="${cy - 8}" width="0" height="16" rx="8" fill="${color}">` +
-      `<animate attributeName="width" from="0" to="${w}" dur="1s" begin="${(0.15 + i * 0.12).toFixed(2)}s" fill="freeze" calcMode="spline" keySplines="0.2 0.6 0.3 1" keyTimes="0;1"/>` +
+/* On an empty profile — a beautiful skeleton card: it fills automatically with the first code */
+function buildEmptyLangsCard(meta, date) {
+  const H = 530;
+  const cx = 705, cy = 250, r = 96;
+
+  let skeleton = '';
+  for (let i = 0; i < 9; i++) {
+    const y = 96 + i * 30;
+    const nameW = 40 + ((i * 37) % 60);
+    skeleton +=
+      `<rect x="30" y="${y}" width="12" height="12" rx="2" fill="#21262d"/>` +
+      `<rect x="50" y="${y + 2}" width="${nameW}" height="9" rx="4" fill="#21262d"/>` +
+      `<rect x="180" y="${y}" width="250" height="15" rx="7.5" fill="#1a2029">` +
+      `<animate attributeName="opacity" values="0.5;1;0.5" dur="${(1.8 + i * 0.22).toFixed(2)}s" begin="${(i * 0.12).toFixed(2)}s" repeatCount="indefinite"/>` +
       `</rect>` +
-      `<text x="756" y="${cy + 5}" font-family="${MONO}" font-size="14" fill="#8b949e">${pct.toFixed(1)}%</text>`;
+      `<text x="500" y="${y + 11}" text-anchor="end" font-family="${MONO}" font-size="13" fill="#3d444d">&#8212;&#8212;</text>`;
+  }
+
+  const ring =
+    `<circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="#21262d" stroke-width="32"/>` +
+    `<circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="#ffb347" stroke-width="32" pathLength="100" stroke-dasharray="10 90" opacity="0.85">` +
+    `<animateTransform attributeName="transform" type="rotate" values="0 ${cx} ${cy};360 ${cx} ${cy}" dur="2.4s" repeatCount="indefinite"/>` +
+    `</circle>`;
+
+  let legend = '';
+  for (let i = 0; i < 8; i++) {
+    const col = i % 2;
+    const row = Math.floor(i / 2);
+    const x = 566 + col * 178;
+    const y = 392 + row * 22;
+    legend +=
+      `<rect x="${x}" y="${y + 1}" width="70" height="9" rx="4" fill="#21262d"/>` +
+      `<rect x="${x + 92}" y="${y + 1}" width="34" height="9" rx="4" fill="#21262d"/>`;
+  }
+
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="920" height="${H}" viewBox="0 0 920 ${H}" role="img" aria-label="top languages loading">
+  <rect width="920" height="${H}" rx="14" fill="#0d1117" stroke="#ff7a18" stroke-opacity="0.35" stroke-width="1.5"/>
+  <text x="30" y="32" font-family="${MONO}" font-size="11" letter-spacing="2" fill="#8b949e">${esc(USER)} :: TOP LANGUAGES</text>
+  <text x="890" y="32" text-anchor="end" font-family="${MONO}" font-size="11" letter-spacing="2" fill="#8b949e">AWAITING DATA</text>
+
+  <text x="30" y="74" font-family="${MONO}" font-size="13" letter-spacing="3" fill="#8b949e">SHARE OF CODE &#8212; LOADING&#8230;</text>
+  ${skeleton}
+  <line x1="525" y1="60" x2="525" y2="385" stroke="#21262d" stroke-width="1"/>
+
+  <text x="${cx}" y="74" text-anchor="middle" font-family="${MONO}" font-size="13" letter-spacing="3" fill="#8b949e">BY VOLUME</text>
+  ${ring}
+  <text x="${cx}" y="${cy - 6}" text-anchor="middle" font-family="${MONO}" font-size="11" letter-spacing="2" fill="#8b949e">TOTAL</text>
+  <text x="${cx}" y="${cy + 18}" text-anchor="middle" font-family="${MONO}" font-size="21" font-weight="bold" fill="#6e7681">0 MB</text>
+  <text x="${cx}" y="${cy + 38}" text-anchor="middle" font-family="${MONO}" font-size="9" letter-spacing="2" fill="#6e7681">AWAITING COMMITS</text>
+
+  <text x="${cx}" y="360" text-anchor="middle" font-family="${MONO}" font-size="10" letter-spacing="1" fill="#ffb347">
+    PUSH YOUR CODE &#8212; GRAPH FILLS ITSELF
+    <animate attributeName="opacity" values="0.5;1;0.5" dur="2.2s" repeatCount="indefinite"/>
+  </text>
+  ${legend}
+
+  <text x="30" y="${H - 18}" font-family="${MONO}" font-size="11" letter-spacing="2" fill="#6e7681">REPOS: ${meta.repos || 0} &#183; LANGS: ${meta.distinct || 0} &#183; COMMITS: ${meta.commits != null ? fmt(meta.commits) : '0'}</text>
+  <text x="890" y="${H - 18}" text-anchor="end" font-family="${MONO}" font-size="11" letter-spacing="2" fill="#6e7681">AUTO ${date}</text>
+</svg>`;
+}
+
+function buildLangsCard(topLangs, meta = {}) {
+  const date = new Date().toISOString().slice(0, 10);
+  if (!topLangs.length) {
+    return buildEmptyLangsCard(meta, date);
+  }
+
+  const total = topLangs.reduce((s, x) => s + x[1], 0);
+  const H = 530;
+  const maxBytes = topLangs[0][1];
+
+  /* --- left: animated share bars --- */
+  let bars = '';
+  topLangs.forEach(([lang, bytes], i) => {
+    const y = 96 + i * 30;
+    const pct = (bytes / total) * 100;
+    const w = Math.max(10, Math.round((bytes / maxBytes) * 250));
+    const name = lang.length > 14 ? lang.slice(0, 13) + '\u2026' : lang;
+    const color = PALETTE[i % PALETTE.length];
+    bars +=
+      `<rect x="30" y="${y}" width="12" height="12" rx="2" fill="${color}"/>` +
+      `<text x="50" y="${y + 11}" font-family="${MONO}" font-size="14" fill="#e6edf3">${esc(name)}</text>` +
+      `<rect x="180" y="${y}" width="250" height="15" rx="7.5" fill="#21262d"/>` +
+      `<rect x="180" y="${y}" width="0" height="15" rx="7.5" fill="${color}">` +
+      `<animate attributeName="width" from="0" to="${w}" dur="1s" begin="${(0.15 + i * 0.09).toFixed(2)}s" fill="freeze" calcMode="spline" keySplines="0.2 0.6 0.3 1" keyTimes="0;1"/>` +
+      `</rect>` +
+      `<text x="500" y="${y + 11}" text-anchor="end" font-family="${MONO}" font-size="13" fill="#8b949e">${pct.toFixed(1)}%</text>`;
   });
+
+  /* --- right: animated donut --- */
+  const cx = 705, cy = 250, r = 96;
+  let cum = 0;
+  let donut = `<circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="#21262d" stroke-width="32"/>`;
+  topLangs.forEach(([lang, bytes], i) => {
+    const pct = (bytes / total) * 100;
+    const L = Math.max(pct, 0.5) * 0.97;
+    const start = (cum * 3.6 - 90).toFixed(2);
+    cum += pct;
+    donut +=
+      `<circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="${PALETTE[i % PALETTE.length]}" stroke-width="32" pathLength="100" stroke-dasharray="0 100" transform="rotate(${start} ${cx} ${cy})">` +
+      `<animate attributeName="stroke-dasharray" values="0 100;${L.toFixed(2)} ${(100 - L).toFixed(2)}" dur="${(0.8 + i * 0.1).toFixed(2)}s" begin="0.3s" fill="freeze"/>` +
+      `</circle>`;
+  });
+
+  /* --- legend under donut --- */
+  let legend = '';
+  topLangs.forEach(([lang, bytes], i) => {
+    const col = i % 2;
+    const row = Math.floor(i / 2);
+    const x = 566 + col * 178;
+    const y = 392 + row * 22;
+    const name = lang.length > 10 ? lang.slice(0, 9) + '\u2026' : lang;
+    const pct = ((bytes / total) * 100).toFixed(1);
+    legend +=
+      `<rect x="${x}" y="${y}" width="10" height="10" rx="2" fill="${PALETTE[i % PALETTE.length]}"/>` +
+      `<text x="${x + 16}" y="${y + 9}" font-family="${MONO}" font-size="11" fill="#c9d1d9">${esc(name)}</text>` +
+      `<text x="${x + 92}" y="${y + 9}" font-family="${MONO}" font-size="11" fill="#8b949e">${pct}%</text>`;
+  });
+
+  const footer =
+    `<text x="30" y="${H - 18}" font-family="${MONO}" font-size="11" letter-spacing="2" fill="#6e7681">REPOS: ${meta.repos || 0} &#183; LANGS: ${meta.distinct || topLangs.length} &#183; COMMITS: ${meta.commits != null ? fmt(meta.commits) : '0'}</text>` +
+    `<text x="890" y="${H - 18}" text-anchor="end" font-family="${MONO}" font-size="11" letter-spacing="2" fill="#6e7681">AUTO ${date}</text>`;
+
   return `<svg xmlns="http://www.w3.org/2000/svg" width="920" height="${H}" viewBox="0 0 920 ${H}" role="img" aria-label="top languages">
   <rect width="920" height="${H}" rx="14" fill="#0d1117" stroke="#ff7a18" stroke-opacity="0.35" stroke-width="1.5"/>
   <text x="30" y="32" font-family="${MONO}" font-size="11" letter-spacing="2" fill="#8b949e">${esc(USER)} :: TOP LANGUAGES</text>
   <text x="890" y="32" text-anchor="end" font-family="${MONO}" font-size="11" letter-spacing="2" fill="#8b949e">TOTAL ${fmtBytes(total)}</text>
-  ${body}
+
+  <text x="30" y="74" font-family="${MONO}" font-size="13" letter-spacing="3" fill="#ff9e2c">SHARE OF CODE</text>
+  ${bars}
+  <line x1="525" y1="60" x2="525" y2="385" stroke="#21262d" stroke-width="1"/>
+
+  <text x="705" y="74" text-anchor="middle" font-family="${MONO}" font-size="13" letter-spacing="3" fill="#ff9e2c">BY VOLUME</text>
+  ${donut}
+  <text x="${cx}" y="${cy - 6}" text-anchor="middle" font-family="${MONO}" font-size="11" letter-spacing="2" fill="#8b949e">TOTAL</text>
+  <text x="${cx}" y="${cy + 18}" text-anchor="middle" font-family="${MONO}" font-size="21" font-weight="bold" fill="#ffd8a8">${fmtBytes(total)}</text>
+  <text x="${cx}" y="${cy + 38}" text-anchor="middle" font-family="${MONO}" font-size="9" letter-spacing="2" fill="#6e7681">OF CODE</text>
+  ${legend}
+  ${footer}
 </svg>`;
 }
 
@@ -172,11 +280,13 @@ function buildLangsCard(topLangs) {
       /* skip private/removed repos */
     }
   }
-  const topLangs = Object.entries(langs).sort((a, b) => b[1] - a[1]).slice(0, 8);
+  const langEntries = Object.entries(langs).sort((a, b) => b[1] - a[1]);
+  const langMeta = { repos: repos.length, distinct: langEntries.length, commits };
+  const topLangs = langEntries.slice(0, 10);
 
   fs.mkdirSync(path.join(process.cwd(), 'out'), { recursive: true });
   fs.writeFileSync('out/stats.svg', buildStatsCard({ stars, repos: repos.length, forks, commits, followers }));
-  fs.writeFileSync('out/langs.svg', buildLangsCard(topLangs));
+  fs.writeFileSync('out/langs.svg', buildLangsCard(topLangs, langMeta));
   console.log(`OK: stats.svg + langs.svg generated for ${USER}`);
 })().catch((e) => {
   console.error(e);
