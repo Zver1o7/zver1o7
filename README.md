@@ -4,8 +4,9 @@
 
 <img src="https://img.shields.io/badge/ROLE-GAME_DEVELOPER-FF7A18?style=for-the-badge" alt="Game Developer" />
 <img src="https://img.shields.io/badge/ENGINE-UNREAL_ENGINE_5-0E1128?style=for-the-badge&logo=unrealengine&logoColor=white" alt="Unreal Engine 5" />
-<img src="https://img.shields.io/badge/FOCUS-GTA_V_/_WoW_/_CS2-FF3D00?style=for-the-badge" alt="GTA V / WoW / CS2" />
+<img src="https://img.shields.io/badge/FOCUS-ANY_GAME_/_ANY_SERVER-FF3D00?style=for-the-badge" alt="Any game / any server" />
 <img src="https://img.shields.io/badge/STATUS-BUILDING_WORLDS-3FB950?style=for-the-badge" alt="Building worlds" />
+<img src="https://img.shields.io/badge/ORDERS-OPEN_24%2F7-FFB347?style=for-the-badge" alt="Orders open" />
 
 <br/>
 <br/>
@@ -19,20 +20,20 @@
 ## 🦊 Обо мне
 
 ```ts
-const zver: GameDeveloper = {
+const zver: Developer = {
   nick: "Zver1o7",
-  engines: ["Unreal Engine 5", "RAGE (GTA V)", "Source 2"],
-  languages: ["C++", "C#", "Python", "TypeScript", "PHP", "SQL"],
-  alsoDoes: ["web", "databases", "bots", "pipeline tooling"],
-  rule: "если что-то повторяется дважды — автоматизирую",
+  tagline: "делаю всё по серверам — и не только",
+  main: ["игровые сервера под ключ", "UE5", "GTA V контент"],
+  fullstack: ["сайты", "API", "боты", "базы данных"],
+  status: "открыт под заказ 🔥",
 };
 ```
 
-- 🎮 **Game Developer** — геймплей, механики и системы на **UE5** (C++ / Blueprints)
-- 🚗 **GTA V** — конвертация автомобилей и **MLO**-интерьеры для RP-серверов: `Blender → CodeWalker → игра`
-- ⚔️ **WoW / CS2** — серверная разработка: кастомные ядра, скрипты, плагины
-- 🌐 **Web & DB** — сайты, REST API, Telegram-боты, базы данных
-- 🧰 **Инструменты** — пишу тулзы, чтобы рутина не съедала время на творчество
+- 🖥️ **Серверы под ключ** — любая игра и движок: ядро, скрипты, режимы, оптимизация и запуск
+- 🎮 **UE5** — геймплей, механики и системы (C++ / Blueprints)
+- 🚗 **GTA V контент** — конверт автомобилей, MLO-интерьеры и тулзы: `Blender → CodeWalker → игра`
+- 🧩 **Плагины и ядра** — нестандартные механики и режимы для любых серверов
+- 🌐 **Web & DB** — сайты, REST API, Telegram-боты, MySQL / PostgreSQL / MongoDB / Redis
 - 📫 **Telegram:** [@Zver1o7](https://t.me/Zver1o7) &nbsp;&nbsp;**Discord:** `Zver1o7`
 
 <div align="center">
@@ -53,12 +54,27 @@ const zver: GameDeveloper = {
   <img src="assets/divider.svg" alt="divider" />
 </div>
 
-## 🚧 Сейчас в работе
+## 🔥 Услуги под заказ
 
-- 🚗 **Парк машин для GTA RP** — модели, колёса, русские номера: полный цикл `Blender → YTD/YDR → игра`
-- 🏗️ **MLO-интерьеры** — гаражи и локации для серверов
-- 🎬 **Промо-рендеры** и автоматизация пайплайна на Python
-- 🎮 **UE5-проект** — геймплейный прототип
+| Услуга | Что получишь |
+| :-: | :-: |
+| 🖥️ **Сервер под ключ** | любая игра и движок: сборка, ядро, скрипты, оптимизация и запуск |
+| 🎮 **Геймдев с нуля** | UE5 (C++ / Blueprints) и другие движки — механики, системы, прототипы |
+| 🧩 **Плагины и моды** | нестандартные режимы и фишки под твой сервер |
+| 📦 **Контент и ассеты** | конверт авто, MLO-интерьеры, текстуры, колёса и номера — из Blender в игру |
+| 🌐 **Сайт + бот + БД** | сайт и дашборд сервера, TG-боты, чистые базы с интеграцией |
+| ⚡ **Оптимизация** | выжму на старте максимум: FPS, тики, загрузки, стабильный онлайн |
+| 🧰 **Автоматизация** | рутину — в скрипты, тебе — время |
+
+> 🎯 **Не увидел свою задачу?** Игровой разраб — значит умею примерно всё. Опиши — скажу, как решу.
+
+<div align="center">
+
+### 💬 Обсудить задачу и заказать → **[@Zver1o7 в Telegram](https://t.me/Zver1o7)**
+
+*Консультация бесплатная: пиши задачу — сориентирую по срокам и цене.*
+
+</div>
 
 <div align="center">
   <img src="assets/divider.svg" alt="divider" />

@@ -68,7 +68,7 @@ git push -u origin main
 | Текст баннера | `assets/header.svg` → теги `<text>` |
 | Строки терминала | `assets/terminal.svg` → теги `<text>` |
 | Оранжевый акцент | код `FF7A18` / `FF9E2C` в SVG и бейджах |
-| Список «Сейчас в работе» | секция `🚧` в `README.md` |
+| Услуги | секция `🔥 Услуги` в `README.md` |
 | Скиллы | таблица `⚡ Tech Stack` в `README.md` |
 | Контакты | секция `📡` в `README.md` |
 
