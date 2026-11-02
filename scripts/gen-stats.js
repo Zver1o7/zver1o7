@@ -87,7 +87,7 @@ function buildStatsCard({ stars, repos, forks, commits, followers }) {
   <rect x="4" y="4" width="912" height="142" rx="11" fill="none" stroke="#ff7a18" stroke-width="1" stroke-dasharray="14 10" stroke-opacity="0.4">
     <animate attributeName="stroke-dashoffset" values="0;-48" dur="2.8s" repeatCount="indefinite"/>
   </rect>
-  <text x="30" y="26" font-family="${MONO}" font-size="11" letter-spacing="2" fill="#8b949e">ZVER1O7 :: LIVE STATS</text>
+  <text x="30" y="26" font-family="${MONO}" font-size="11" letter-spacing="2" fill="#8b949e">${esc(USER)} :: LIVE STATS</text>
   <text x="890" y="26" text-anchor="end" font-family="${MONO}" font-size="11" letter-spacing="2" fill="#8b949e">AUTO ${esc(date)}</text>
   ${dividers}
   ${cells}
@@ -124,7 +124,7 @@ function buildLangsCard(topLangs) {
   });
   return `<svg xmlns="http://www.w3.org/2000/svg" width="920" height="${H}" viewBox="0 0 920 ${H}" role="img" aria-label="top languages">
   <rect width="920" height="${H}" rx="14" fill="#0d1117" stroke="#ff7a18" stroke-opacity="0.35" stroke-width="1.5"/>
-  <text x="30" y="32" font-family="${MONO}" font-size="11" letter-spacing="2" fill="#8b949e">ZVER1O7 :: TOP LANGUAGES</text>
+  <text x="30" y="32" font-family="${MONO}" font-size="11" letter-spacing="2" fill="#8b949e">${esc(USER)} :: TOP LANGUAGES</text>
   <text x="890" y="32" text-anchor="end" font-family="${MONO}" font-size="11" letter-spacing="2" fill="#8b949e">TOTAL ${fmtBytes(total)}</text>
   ${body}
 </svg>`;

@@ -1,13 +1,19 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="900" height="300" viewBox="0 0 900 300" role="img" aria-label="ZVER1O7 — game and server developer">
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="300" viewBox="0 0 900 300" role="img" aria-label="Zver1o7 — game and server developer">
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0" stop-color="#0d1117"/>
       <stop offset="1" stop-color="#1f1105"/>
     </linearGradient>
     <linearGradient id="titleGrad" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#ffd8a8"/>
-      <stop offset="0.45" stop-color="#ff9e2c"/>
-      <stop offset="1" stop-color="#ff3d00"/>
+      <stop offset="0" stop-color="#ffd8a8">
+        <animate attributeName="stop-color" values="#ffd8a8;#ffb347;#ff7a18;#ffd8a8" dur="4s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="0.5" stop-color="#ff9e2c">
+        <animate attributeName="stop-color" values="#ff9e2c;#ff7a18;#ffb347;#ff9e2c" dur="4s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="1" stop-color="#ff3d00">
+        <animate attributeName="stop-color" values="#ff3d00;#ff9e2c;#ffd8a8;#ff3d00" dur="4s" repeatCount="indefinite"/>
+      </stop>
     </linearGradient>
     <linearGradient id="foxGrad" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0" stop-color="#ffb347"/>
@@ -28,7 +34,7 @@
       </feMerge>
     </filter>
     <filter id="foxHalo" x="-40%" y="-40%" width="180%" height="180%">
-      <feDropShadow dx="0" dy="0" stdDeviation="9" flood-color="#ff7a18" flood-opacity="0.55">
+      <feDropShadow dx="0" dy="0" stdDeviation="10" flood-color="#ff7a18" flood-opacity="0.55">
         <animate attributeName="flood-opacity" values="0.35;0.7;0.35" dur="3.5s" repeatCount="indefinite"/>
       </feDropShadow>
     </filter>
@@ -42,35 +48,35 @@
       <animate attributeName="cy" values="295;30" dur="7.5s" begin="0s" repeatCount="indefinite"/>
       <animate attributeName="opacity" values="0;0.85;0" keyTimes="0;0.18;1" dur="7.5s" begin="0s" repeatCount="indefinite"/>
     </circle>
-    <circle cx="170" cy="290" r="1.6" fill="#ff7a18" opacity="0">
+    <circle cx="180" cy="290" r="1.6" fill="#ff7a18" opacity="0">
       <animate attributeName="cy" values="295;30" dur="9s" begin="1.5s" repeatCount="indefinite"/>
       <animate attributeName="opacity" values="0;0.85;0" keyTimes="0;0.18;1" dur="9s" begin="1.5s" repeatCount="indefinite"/>
     </circle>
-    <circle cx="260" cy="290" r="2.8" fill="#ffd8a8" opacity="0">
+    <circle cx="270" cy="290" r="2.8" fill="#ffd8a8" opacity="0">
       <animate attributeName="cy" values="295;30" dur="6.5s" begin="3s" repeatCount="indefinite"/>
       <animate attributeName="opacity" values="0;0.85;0" keyTimes="0;0.18;1" dur="6.5s" begin="3s" repeatCount="indefinite"/>
     </circle>
-    <circle cx="340" cy="290" r="1.8" fill="#ff7a18" opacity="0">
+    <circle cx="360" cy="290" r="1.8" fill="#ff7a18" opacity="0">
       <animate attributeName="cy" values="295;30" dur="8s" begin="0.8s" repeatCount="indefinite"/>
       <animate attributeName="opacity" values="0;0.85;0" keyTimes="0;0.18;1" dur="8s" begin="0.8s" repeatCount="indefinite"/>
     </circle>
-    <circle cx="470" cy="290" r="2.4" fill="#ffb347" opacity="0">
+    <circle cx="450" cy="290" r="2.4" fill="#ffb347" opacity="0">
       <animate attributeName="cy" values="295;30" dur="7s" begin="2.2s" repeatCount="indefinite"/>
       <animate attributeName="opacity" values="0;0.85;0" keyTimes="0;0.18;1" dur="7s" begin="2.2s" repeatCount="indefinite"/>
     </circle>
-    <circle cx="560" cy="290" r="1.5" fill="#ffd8a8" opacity="0">
+    <circle cx="540" cy="290" r="1.5" fill="#ffd8a8" opacity="0">
       <animate attributeName="cy" values="295;30" dur="10s" begin="4s" repeatCount="indefinite"/>
       <animate attributeName="opacity" values="0;0.85;0" keyTimes="0;0.18;1" dur="10s" begin="4s" repeatCount="indefinite"/>
     </circle>
-    <circle cx="640" cy="290" r="2.6" fill="#ff7a18" opacity="0">
+    <circle cx="620" cy="290" r="2.6" fill="#ff7a18" opacity="0">
       <animate attributeName="cy" values="295;30" dur="8.5s" begin="1s" repeatCount="indefinite"/>
       <animate attributeName="opacity" values="0;0.85;0" keyTimes="0;0.18;1" dur="8.5s" begin="1s" repeatCount="indefinite"/>
     </circle>
-    <circle cx="730" cy="290" r="1.7" fill="#ffb347" opacity="0">
+    <circle cx="740" cy="290" r="1.7" fill="#ffb347" opacity="0">
       <animate attributeName="cy" values="295;30" dur="7.2s" begin="2.8s" repeatCount="indefinite"/>
       <animate attributeName="opacity" values="0;0.85;0" keyTimes="0;0.18;1" dur="7.2s" begin="2.8s" repeatCount="indefinite"/>
     </circle>
-    <circle cx="820" cy="290" r="2.1" fill="#ff7a18" opacity="0">
+    <circle cx="840" cy="290" r="2.1" fill="#ff7a18" opacity="0">
       <animate attributeName="cy" values="295;30" dur="9.5s" begin="0.5s" repeatCount="indefinite"/>
       <animate attributeName="opacity" values="0;0.85;0" keyTimes="0;0.18;1" dur="9.5s" begin="0.5s" repeatCount="indefinite"/>
     </circle>
@@ -125,66 +131,89 @@
     </line>
   </g>
 
-  <!-- neon fox -->
-  <g transform="translate(645,40) scale(0.9)" filter="url(#foxHalo)">
-    <!-- silhouette with gradient fill -->
-    <path d="M64 6 L30 68 Q22 96 40 108 Q62 124 88 158 Q100 168 112 158 Q138 124 160 108 Q178 96 170 68 L136 6 L126 60 Q100 40 74 60 Z" fill="url(#foxGrad)" stroke="#2b1105" stroke-width="2" stroke-linejoin="round"/>
+  <!-- sparkle stars near fox -->
+  <path d="M586 86 l3 7 7 3 -7 3 -3 7 -3 -7 -7 -3 7 -3 z" fill="#ffd8a8">
+    <animate attributeName="opacity" values="0.2;1;0.2" dur="2.6s" begin="0s" repeatCount="indefinite"/>
+  </path>
+  <path d="M812 150 l2.5 6 6 2.5 -6 2.5 -2.5 6 -2.5 -6 -6 -2.5 6 -2.5 z" fill="#ffb347">
+    <animate attributeName="opacity" values="0.2;1;0.2" dur="3.4s" begin="1.2s" repeatCount="indefinite"/>
+  </path>
 
-    <!-- inner ears -->
-    <polygon points="66,16 52,54 80,50" fill="#5a2812" opacity="0.9"/>
-    <polygon points="134,16 148,54 120,50" fill="#5a2812" opacity="0.9"/>
-
-    <!-- white muzzle -->
-    <path d="M74 116 Q100 108 126 116 Q112 150 100 162 Q88 150 74 116 Z" fill="#fff3e0" opacity="0.92"/>
-
-    <!-- eyes (blink) -->
-    <g transform="translate(64,88)">
-      <path d="M-12 -2 Q0 -10 12 -2 Q0 6 -12 -2 Z" fill="#1a0d06"/>
-      <circle cx="-4" cy="-1" r="1.6" fill="#ffd8a8"/>
-      <animateTransform attributeName="transform" type="scale" additive="sum" values="1 1;1 1;1 0.08;1 1" keyTimes="0;0.88;0.93;1" dur="5s" repeatCount="indefinite"/>
+  <!-- sitting neon fox -->
+  <g transform="translate(600,52) scale(0.85)" filter="url(#foxHalo)">
+    <g transform="translate(120,215)">
+      <animateTransform attributeName="transform" type="scale" additive="sum" values="1 1;1.015 1.012;1 1" dur="4s" repeatCount="indefinite"/>
+      <g transform="translate(-120,-215)">
+        <!-- tail -->
+        <path d="M172 202 Q240 194 226 120 Q222 92 198 84 L190 96 Q210 108 214 150 Q206 190 164 202 Z" fill="#ff7a18" stroke="#2b1105" stroke-width="1.5" stroke-linejoin="round"/>
+        <path d="M198 84 Q222 92 226 120 Q221 102 210 94 Q203 88 198 84 Z" fill="#fff3e0" stroke="#2b1105" stroke-width="1" stroke-linejoin="round"/>
+        <!-- haunches -->
+        <path d="M54 194 Q32 176 38 148 Q52 140 66 152 Q72 184 78 212 Q62 210 54 194 Z" fill="#d9480f" stroke="#2b1105" stroke-width="1.5" stroke-linejoin="round"/>
+        <path d="M186 194 Q208 176 202 148 Q188 140 174 152 Q168 184 162 212 Q178 210 186 194 Z" fill="#d9480f" stroke="#2b1105" stroke-width="1.5" stroke-linejoin="round"/>
+        <!-- body -->
+        <path d="M96 96 Q56 130 54 194 Q60 208 76 210 L164 210 Q180 208 186 194 Q184 130 144 96 Q120 106 96 96 Z" fill="url(#foxGrad)" stroke="#2b1105" stroke-width="1.5" stroke-linejoin="round"/>
+        <!-- chest bib -->
+        <path d="M104 116 Q120 108 136 116 Q142 158 138 198 Q120 206 102 198 Q98 158 104 116 Z" fill="#fff3e0" opacity="0.95"/>
+        <!-- front legs + paws -->
+        <rect x="104" y="118" width="9" height="80" rx="4" fill="#e8590c" stroke="#2b1105" stroke-width="1"/>
+        <rect x="127" y="118" width="9" height="80" rx="4" fill="#e8590c" stroke="#2b1105" stroke-width="1"/>
+        <rect x="102.5" y="194" width="12" height="13" rx="5" fill="#fff3e0" stroke="#2b1105" stroke-width="1"/>
+        <rect x="125.5" y="194" width="12" height="13" rx="5" fill="#fff3e0" stroke="#2b1105" stroke-width="1"/>
+        <!-- head -->
+        <g transform="translate(58,4) scale(0.62)">
+          <path d="M64 6 L30 68 Q22 96 40 108 Q62 124 88 158 Q100 168 112 158 Q138 124 160 108 Q178 96 170 68 L136 6 L126 60 Q100 40 74 60 Z" fill="url(#foxGrad)" stroke="#2b1105" stroke-width="2.4" stroke-linejoin="round"/>
+          <polygon points="66,16 52,54 80,50" fill="#5a2812" opacity="0.9"/>
+          <polygon points="134,16 148,54 120,50" fill="#5a2812" opacity="0.9"/>
+          <path d="M74 116 Q100 108 126 116 Q112 150 100 162 Q88 150 74 116 Z" fill="#fff3e0" opacity="0.92"/>
+          <g transform="translate(64,88)">
+            <path d="M-12 -2 Q0 -10 12 -2 Q0 6 -12 -2 Z" fill="#1a0d06"/>
+            <circle cx="-4" cy="-1" r="1.6" fill="#ffd8a8"/>
+            <animateTransform attributeName="transform" type="scale" additive="sum" values="1 1;1 1;1 0.08;1 1" keyTimes="0;0.88;0.93;1" dur="5s" repeatCount="indefinite"/>
+          </g>
+          <g transform="translate(136,88)">
+            <path d="M-12 -2 Q0 -10 12 -2 Q0 6 -12 -2 Z" fill="#1a0d06"/>
+            <circle cx="4" cy="-1" r="1.6" fill="#ffd8a8"/>
+            <animateTransform attributeName="transform" type="scale" additive="sum" values="1 1;1 1;1 0.08;1 1" keyTimes="0;0.88;0.93;1" dur="5s" repeatCount="indefinite"/>
+          </g>
+          <path d="M91 136 Q100 132 109 136 L103 146 Q100 149 97 146 Z" fill="#2b1105"/>
+          <path d="M64 6 L30 68 Q22 96 40 108 Q62 124 88 158 Q100 168 112 158 Q138 124 160 108 Q178 96 170 68 L136 6 L126 60 Q100 40 74 60 Z" fill="none" stroke="#ffd8a8" stroke-width="2.2" stroke-linejoin="round" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100" opacity="0.9">
+            <animate attributeName="stroke-dashoffset" values="100;0" dur="2.2s" begin="0.4s" fill="freeze"/>
+          </path>
+        </g>
+      </g>
     </g>
-    <g transform="translate(136,88)">
-      <path d="M-12 -2 Q0 -10 12 -2 Q0 6 -12 -2 Z" fill="#1a0d06"/>
-      <circle cx="4" cy="-1" r="1.6" fill="#ffd8a8"/>
-      <animateTransform attributeName="transform" type="scale" additive="sum" values="1 1;1 1;1 0.08;1 1" keyTimes="0;0.88;0.93;1" dur="5s" repeatCount="indefinite"/>
-    </g>
-
-    <!-- nose -->
-    <path d="M91 136 Q100 132 109 136 L103 146 Q100 149 97 146 Z" fill="#2b1105"/>
-
-    <!-- draw-on neon outline -->
-    <path d="M64 6 L30 68 Q22 96 40 108 Q62 124 88 158 Q100 168 112 158 Q138 124 160 108 Q178 96 170 68 L136 6 L126 60 Q100 40 74 60 Z" fill="none" stroke="#ffd8a8" stroke-width="2.2" stroke-linejoin="round" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100" opacity="0.9">
-      <animate attributeName="stroke-dashoffset" values="100;0" dur="2.2s" begin="0.4s" fill="freeze"/>
-    </path>
   </g>
 
   <!-- HUD top-left -->
-  <text x="34" y="52" font-family="Consolas, 'Courier New', monospace" font-size="13" letter-spacing="2" fill="#8b949e">// ZVER1O7 :: PROFILE.EXE</text>
+  <text x="34" y="52" font-family="Consolas, 'Courier New', monospace" font-size="13" letter-spacing="2" fill="#8b949e">// Zver1o7 :: PROFILE.EXE</text>
   <rect x="298" y="40" width="8" height="14" fill="#ff9e2c">
     <animate attributeName="opacity" values="1;0;1" dur="1.2s" repeatCount="indefinite"/>
   </rect>
 
-  <!-- title -->
-  <text x="52" y="132" font-family="Consolas, 'Courier New', monospace" font-size="74" font-weight="bold" letter-spacing="3" fill="url(#titleGrad)" filter="url(#titleGlow)">ZVER1O7</text>
-  <text x="52" y="172" font-family="Consolas, 'Courier New', monospace" font-size="24" font-weight="bold" letter-spacing="10" fill="#ffd8a8">GAME DEVELOPER</text>
-  <text x="52" y="198" font-family="Consolas, 'Courier New', monospace" font-size="15" letter-spacing="2.5" fill="#ffb347" opacity="0.9">UE5 &#183; SERVERS &#183; GTA V &#183; WEB &#183; DB</text>
-
-  <!-- HUD bottom: commissions open -->
-  <text x="34" y="285" font-family="Consolas, 'Courier New', monospace" font-size="12" letter-spacing="2" fill="#ffb347">
-    COMMISSIONS: OPEN
-    <animate attributeName="opacity" values="0.7;1;0.7" dur="2s" repeatCount="indefinite"/>
-  </text>
-  <path d="M232 277 L239 281 L232 285 L225 281 Z" fill="#ffb347">
-    <animate attributeName="opacity" values="0.4;1;0.4" dur="2s" repeatCount="indefinite"/>
-  </path>
-
-  <text x="866" y="285" text-anchor="end" font-family="Consolas, 'Courier New', monospace" font-size="12" letter-spacing="2" fill="#3fb950">
+  <!-- HUD top-right -->
+  <text x="866" y="52" text-anchor="end" font-family="Consolas, 'Courier New', monospace" font-size="12" letter-spacing="2" fill="#3fb950">
     STATUS: ONLINE
     <animate attributeName="opacity" values="0.5;1;0.5" dur="2.5s" repeatCount="indefinite"/>
   </text>
-  <circle cx="742" cy="281" r="4" fill="#3fb950">
+  <circle cx="736" cy="48" r="4" fill="#3fb950">
     <animate attributeName="opacity" values="0.5;1;0.5" dur="2.5s" repeatCount="indefinite"/>
   </circle>
+
+  <!-- title -->
+  <text x="52" y="132" font-family="Consolas, 'Courier New', monospace" font-size="74" font-weight="bold" letter-spacing="3" fill="url(#titleGrad)" filter="url(#titleGlow)">Zver1o7</text>
+  <text x="52" y="172" font-family="Consolas, 'Courier New', monospace" font-size="24" font-weight="bold" letter-spacing="10" fill="#ffd8a8">GAME &amp; SERVER DEV</text>
+  <text x="52" y="198" font-family="Consolas, 'Courier New', monospace" font-size="15" letter-spacing="2.5" fill="#ffb347" opacity="0.9">UE5 &#183; SERVERS &#183; GTA V &#183; WEB &#183; DB</text>
+
+  <!-- orders ticker -->
+  <g font-family="Consolas, 'Courier New', monospace" font-size="12" letter-spacing="3" fill="#ff9e2c" opacity="0.9">
+    <g>
+      <animateTransform attributeName="transform" type="translate" values="0 0;-558 0" dur="14s" repeatCount="indefinite"/>
+      <text x="0" y="281">ORDERS OPEN &#8212; UE5 &#8212; SERVERS &#8212; GTA V &#8212; WEB &#8212; DB &#8212; SCRIPTS &#8212;</text>
+      <text x="558" y="281">ORDERS OPEN &#8212; UE5 &#8212; SERVERS &#8212; GTA V &#8212; WEB &#8212; DB &#8212; SCRIPTS &#8212;</text>
+      <text x="1116" y="281">ORDERS OPEN &#8212; UE5 &#8212; SERVERS &#8212; GTA V &#8212; WEB &#8212; DB &#8212; SCRIPTS &#8212;</text>
+      <text x="1674" y="281">ORDERS OPEN &#8212; UE5 &#8212; SERVERS &#8212; GTA V &#8212; WEB &#8212; DB &#8212; SCRIPTS &#8212;</text>
+    </g>
+  </g>
 
   <!-- marching neon border -->
   <rect x="7" y="7" width="886" height="286" rx="14" fill="none" stroke="#ff7a18" stroke-width="1.5" stroke-dasharray="18 12" stroke-opacity="0.55">

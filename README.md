@@ -1,4 +1,4 @@
-<img src="assets/header.svg" alt="ZVER1O7 — game developer" />
+<img src="assets/header.svg" alt="Zver1o7 — game and server developer" />
 
 <div align="center">
 
@@ -56,15 +56,33 @@ const zver: Developer = {
 
 ## 🔥 Услуги под заказ
 
+**🖥️ Серверы — от идеи до стабильного онлайна**
+
 | Услуга | Что получишь |
 | :-: | :-: |
-| 🖥️ **Сервер под ключ** | любая игра и движок: сборка, ядро, скрипты, оптимизация и запуск |
-| 🎮 **Геймдев с нуля** | UE5 (C++ / Blueprints) и другие движки — механики, системы, прототипы |
-| 🧩 **Плагины и моды** | нестандартные режимы и фишки под твой сервер |
-| 📦 **Контент и ассеты** | конверт авто, MLO-интерьеры, текстуры, колёса и номера — из Blender в игру |
-| 🌐 **Сайт + бот + БД** | сайт и дашборд сервера, TG-боты, чистые базы с интеграцией |
-| ⚡ **Оптимизация** | выжму на старте максимум: FPS, тики, загрузки, стабильный онлайн |
-| 🧰 **Автоматизация** | рутину — в скрипты, тебе — время |
+| 🖥️ **Сервер под ключ** | любая игра и движок: сборка, конфиги, скрипты, запуск и поддержка |
+| 🧩 **Скрипты и системы** | любые механики, режимы, команды и интеграции под твою идею |
+| 🛠️ **Плагины и моды** | эксклюзивные фишки под твой сервер, которых не будет у других |
+| ⚡ **Оптимизация** | FPS, тики, загрузки — стабильный онлайн даже под нагрузкой |
+| 🔐 **Защита сервера** | античит, закрытие эксплойтов, бэкапы и мониторинг |
+
+**🎮 Игры и графика**
+
+| Услуга | Что получишь |
+| :-: | :-: |
+| 🎮 **Геймдев с нуля** | UE5 (C++ / Blueprints) и другие движки: механики, системы, прототипы |
+| 📦 **Контент и ассеты** | конверт авто, MLO-интерьеры, колёса и номера — из Blender прямо в игру |
+| 🖼️ **Модели и рендеры** | 3D-модели, текстуры, промо-рендеры и обложки для сервера |
+
+**🌐 Веб и всё остальное**
+
+| Услуга | Что получишь |
+| :-: | :-: |
+| 🌐 **Сайт под ключ** | сайт сервера, лендинг, личный кабинет или админ-панель |
+| 🤖 **Боты** | Telegram / Discord / VK: магазин, регистрация, уведомления — под задачу |
+| 🗄️ **Базы данных** | чистые схемы, миграции и интеграция с сервером и сайтом |
+| 🧰 **Автоматизация и тулзы** | пайплайны, парсеры, конвертеры — рутину в скрипты, тебе время |
+| 🚀 **Деплой и поддержка** | хостинг, домен, обновления — проект живёт и не падает |
 
 > 🎯 **Не увидел свою задачу?** Игровой разраб — значит умею примерно всё. Опиши — скажу, как решу.
 
@@ -82,20 +100,15 @@ const zver: Developer = {
 
 ## 📊 Статистика
 
-> 🔧 Карточки ниже рисует **мой собственный GitHub Action** (`.github/workflows/stats.yml`): дёргает GitHub API, рендерит SVG и пушит в ветку `stats-output`. Никаких сторонних сервисов — статистика не ляжет никогда.
+> 🔧 Карточки генерит **мой собственный GitHub Action**: дёргает GitHub API, рисует SVG и коммитит обновление прямо в репозиторий (`assets/generated/`). Сторонних сервисов нет — статистика не ляжет никогда. Стартовые карточки уже внутри и работают сразу.
 
 <div align="center">
 
-<img src="https://github.com/Zver1o7/Zver1o7/actions/workflows/stats.yml/badge.svg" alt="generate stats" />
-<img src="https://github.com/Zver1o7/Zver1o7/actions/workflows/snake.yml/badge.svg" alt="snake" />
-<br/>
-<br/>
-
-<a href="https://github.com/Zver1o7?tab=repositories"><img src="https://raw.githubusercontent.com/Zver1o7/Zver1o7/stats-output/stats.svg" alt="Zver1o7 — live stats" /></a>
+<a href="https://github.com/Zver1o7?tab=repositories"><img src="assets/generated/stats.svg" alt="Zver1o7 — live stats" /></a>
 <br/>
 <a href="https://streak-stats.demolab.com?user=Zver1o7"><img src="https://streak-stats.demolab.com?user=Zver1o7&hide_border=true&background=0D1117&stroke=21262D&ring=FF7A18&fire=FF3D00&currStreakLabel=FF9E2C&sideLabels=E6EDF3&currStreakNum=FFB347&sideNums=E6EDF3&dates=8B949E" alt="GitHub Streak" /></a>
 <br/>
-<a href="https://github.com/Zver1o7?tab=repositories"><img src="https://raw.githubusercontent.com/Zver1o7/Zver1o7/stats-output/langs.svg" alt="Zver1o7 — top languages" /></a>
+<a href="https://github.com/Zver1o7?tab=repositories"><img src="assets/generated/langs.svg" alt="Zver1o7 — top languages" /></a>
 
 </div>
 
@@ -115,15 +128,11 @@ const zver: Developer = {
   <img src="assets/divider.svg" alt="divider" />
 </div>
 
-## 🐍 Змейка пожирает мой вклад
+## 🦊 Охота за контрибуциями
 
 <div align="center">
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Zver1o7/Zver1o7/snake-output/snake-dark.svg" />
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/Zver1o7/Zver1o7/snake-output/snake.svg" />
-  <img src="https://raw.githubusercontent.com/Zver1o7/Zver1o7/snake-output/snake.svg" alt="snake animation" />
-</picture>
+  <img src="assets/fox-run.svg" alt="Zver1o7 — fox run: лис прыгает через ящики и догоняет зайца" />
+</div>
 
 </div>
 
