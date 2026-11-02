@@ -1,4 +1,4 @@
-<img src="assets/header.svg?v=9" alt="Zver1o7 — game and server developer" />
+﻿<img src="assets/header.svg?v=10" alt="Zver1o7 — game and server developer" />
 
 <div align="center">
 
@@ -11,7 +11,7 @@
 <br/>
 <br/>
 
-<img src="assets/terminal.svg?v=9" alt="terminal" />
+<img src="assets/terminal.svg?v=10" alt="terminal" />
 
 </div>
 
@@ -29,7 +29,7 @@ const zver: Developer = {
 };
 ```
 
-- 🖥️ **Серверы под ключ** — любая игра и движок: ядро, скрипты, режимы, оптимизация и запуск
+- 🖥️ **Игровые серверы под ключ** — любая игра и движок: ядро, скрипты, режимы, оптимизация и запуск
 - 🎮 **UE5** — геймплей, механики и системы (C++ / Blueprints)
 - 🚗 **GTA V контент** — конверт автомобилей, MLO-интерьеры и тулзы: `Blender → CodeWalker → игра`
 - 🧩 **Плагины и ядра** — нестандартные механики и режимы для любых серверов
@@ -37,7 +37,7 @@ const zver: Developer = {
 - 📫 **Telegram:** [@Zver1o7](https://t.me/Zver1o7) &nbsp;&nbsp;**Discord:** `Zver1o7`
 
 <div align="center">
-  <img src="assets/divider.svg?v=9" alt="divider" />
+  <img src="assets/divider.svg?v=10" alt="divider" />
 </div>
 
 ## ⚡ Tech Stack
@@ -48,10 +48,10 @@ const zver: Developer = {
 | ⚔️ <b>Game Servers</b> | 🌐 <b>Web &amp; API</b> |
 | <p align="center"><img src="https://img.shields.io/badge/AzerothCore-WoW_Core-FF7A18?style=flat-square" alt="AzerothCore" /> <img src="https://img.shields.io/badge/TrinityCore-WoW_Core-FF7A18?style=flat-square" alt="TrinityCore" /> <img src="https://img.shields.io/badge/CounterStrikeSharp-CS2_Plugins-FF7A18?style=flat-square" alt="CS#" /> <img src="https://img.shields.io/badge/Metamod_Source-Plugins-FF7A18?style=flat-square" alt="Metamod" /> <img src="https://img.shields.io/badge/SourceMod-Server_Plugins-FF7A18?style=flat-square" alt="SourceMod" /> <img src="https://img.shields.io/badge/Lua-Scripting-000080?style=flat-square&logo=lua&logoColor=white" alt="Lua" /> <img src="https://img.shields.io/badge/C%2B%2B-Core_Dev-00599C?style=flat-square&logo=cplusplus&logoColor=white" alt="C++" /></p> | <p align="center"><img src="https://img.shields.io/badge/TypeScript-Strict_Mode-3178C6?style=flat-square&logo=typescript&logoColor=white" alt="TS" /> <img src="https://img.shields.io/badge/JavaScript-ES11-F7DF1E?style=flat-square&logo=javascript&logoColor=black" alt="JS" /> <img src="https://img.shields.io/badge/React-UI-61DAFB?style=flat-square&logo=react&logoColor=black" alt="React" /> <img src="https://img.shields.io/badge/Node.js-REST_%26_Bots-339933?style=flat-square&logo=nodedotjs&logoColor=white" alt="Node" /> <img src="https://img.shields.io/badge/PHP-Backend-777BB4?style=flat-square&logo=php&logoColor=white" alt="PHP" /> <img src="https://img.shields.io/badge/HTML5-Semantics-E34F26?style=flat-square&logo=html5&logoColor=white" alt="HTML5" /> <img src="https://img.shields.io/badge/Tailwind_CSS-Styling-38BDF8?style=flat-square&logo=tailwindcss&logoColor=white" alt="Tailwind" /> <img src="https://img.shields.io/badge/Telegram-Bots-26A5E4?style=flat-square&logo=telegram&logoColor=white" alt="TG bots" /></p> |
 | 🗄️ <b>Databases</b> | 🛠️ <b>DevOps &amp; Tools</b> |
-| <p align="center"><img src="https://img.shields.io/badge/MySQL-Schemas-4479A1?style=flat-square&logo=mysql&logoColor=white" alt="MySQL" /> <img src="https://img.shields.io/badge/PostgreSQL-Queries-4169E1?style=flat-square&logo=postgresql&logoColor=white" alt="PostgreSQL" /> <img src="https://img.shields.io/badge/SQLite-Embedded-003B57?style=flat-square&logo=sqlite&logoColor=white" alt="SQLite" /> <img src="https://img.shields.io/badge/MongoDB-NoSQL-47A248?style=flat-square&logo=mongodb&logoColor=white" alt="MongoDB" /> <img src="https://img.shields.io/badge/Redis-Cache_%26_Queues-DC382D?style=flat-square&logo=redis&logoColor=white" alt="Redis" /> <img src="https://img.shields.io/badge/SQL-Reports-FF7A18?style=flat-square" alt="SQL" /></p> | <p align="center"><img src="https://img.shields.io/badge/Git-Versioning-F05032?style=flat-square&logo=git&logoColor=white" alt="Git" /> <img src="https://img.shields.io/badge/GitHub_Actions-CI%2FCD-2088FF?style=flat-square&logo=githubactions&logoColor=white" alt="Actions" /> <img src="https://img.shields.io/badge/Docker-Containers-2496ED?style=flat-square&logo=docker&logoColor=white" alt="Docker" /> <img src="https://img.shields.io/badge/Linux-Servers-FCC624?style=flat-square&logo=linux&logoColor=black" alt="Linux" /> <img src="https://img.shields.io/badge/Nginx-Reverse_Proxy-009639?style=flat-square&logo=nginx&logoColor=white" alt="Nginx" /> <img src="https://img.shields.io/badge/VS_Code-IDE-007ACC?style=flat-square&logo=visualstudiocode&logoColor=white" alt="VS Code" /> <img src="https://img.shields.io/badge/PowerShell-Automation-5391FE?style=flat-square&logo=powershell&logoColor=white" alt="PowerShell" /> <img src="https://img.shields.io/badge/Bash-Scripting-4EAA25?style=flat-square&logo=gnubash&logoColor=white" alt="Bash" /></p> |
+| <p align="center"><img src="https://img.shields.io/badge/MySQL-Optimization-4479A1?style=flat-square&logo=mysql&logoColor=white" alt="MySQL" /> <img src="https://img.shields.io/badge/PostgreSQL-Queries-4169E1?style=flat-square&logo=postgresql&logoColor=white" alt="PostgreSQL" /> <img src="https://img.shields.io/badge/SQLite-Embedded-003B57?style=flat-square&logo=sqlite&logoColor=white" alt="SQLite" /> <img src="https://img.shields.io/badge/MongoDB-NoSQL-47A248?style=flat-square&logo=mongodb&logoColor=white" alt="MongoDB" /> <img src="https://img.shields.io/badge/Redis-Cache_%26_Queues-DC382D?style=flat-square&logo=redis&logoColor=white" alt="Redis" /> <img src="https://img.shields.io/badge/SQL-Reports-FF7A18?style=flat-square" alt="SQL" /></p> | <p align="center"><img src="https://img.shields.io/badge/Git-Versioning-F05032?style=flat-square&logo=git&logoColor=white" alt="Git" /> <img src="https://img.shields.io/badge/GitHub_Actions-CI%2FCD-2088FF?style=flat-square&logo=githubactions&logoColor=white" alt="Actions" /> <img src="https://img.shields.io/badge/Docker-Containers-2496ED?style=flat-square&logo=docker&logoColor=white" alt="Docker" /> <img src="https://img.shields.io/badge/Linux-Servers-FCC624?style=flat-square&logo=linux&logoColor=black" alt="Linux" /> <img src="https://img.shields.io/badge/Nginx-Reverse_Proxy-009639?style=flat-square&logo=nginx&logoColor=white" alt="Nginx" /> <img src="https://img.shields.io/badge/VS_Code-IDE-007ACC?style=flat-square&logo=visualstudiocode&logoColor=white" alt="VS Code" /> <img src="https://img.shields.io/badge/PowerShell-Automation-5391FE?style=flat-square&logo=powershell&logoColor=white" alt="PowerShell" /> <img src="https://img.shields.io/badge/Bash-Scripting-4EAA25?style=flat-square&logo=gnubash&logoColor=white" alt="Bash" /></p> |
 
 <div align="center">
-  <img src="assets/divider.svg?v=9" alt="divider" />
+  <img src="assets/divider.svg?v=10" alt="divider" />
 </div>
 
 ## 🔥 Услуги под заказ
@@ -59,7 +59,7 @@ const zver: Developer = {
 **🖥️ Серверы — от идеи до стабильного онлайна**
 
 | Услуга | Что получишь |
-| :-: | :-: |
+| :---: | :---: |
 | 🖥️ **Сервер под ключ** | любая игра и движок: сборка, конфиги, скрипты, запуск и поддержка |
 | 🧩 **Скрипты и системы** | любые механики, режимы, команды и интеграции под твою идею |
 | 🛠️ **Плагины и моды** | эксклюзивные фишки под твой сервер, которых не будет у других |
@@ -69,7 +69,7 @@ const zver: Developer = {
 **🎮 Игры и графика**
 
 | Услуга | Что получишь |
-| :-: | :-: |
+| :---: | :---: |
 | 🎮 **Геймдев с нуля** | UE5 (C++ / Blueprints) и другие движки: механики, системы, прототипы |
 | 📦 **Контент и ассеты** | конверт авто, MLO-интерьеры, колёса и номера — из Blender прямо в игру |
 | 🖼️ **Модели и рендеры** | 3D-модели, текстуры, промо-рендеры и обложки для сервера |
@@ -77,7 +77,7 @@ const zver: Developer = {
 **🌐 Веб и всё остальное**
 
 | Услуга | Что получишь |
-| :-: | :-: |
+| :---: | :---: |
 | 🌐 **Сайт под ключ** | сайт сервера, лендинг, личный кабинет или админ-панель |
 | 🤖 **Боты** | Telegram / Discord / VK: магазин, регистрация, уведомления — под задачу |
 | 🗄️ **Базы данных** | чистые схемы, миграции и интеграция с сервером и сайтом |
@@ -95,20 +95,20 @@ const zver: Developer = {
 </div>
 
 <div align="center">
-  <img src="assets/divider.svg?v=9" alt="divider" />
+  <img src="assets/divider.svg?v=10" alt="divider" />
 </div>
 
 ## 📊 Статистика
 
-> 🔧 Карточки генерит **мой собственный GitHub Action**: дёргает GitHub API, рисует SVG и коммитит обновление прямо в репозиторий (`assets/generated/`). Сторонних сервисов нет — статистика не ляжет никогда. Стартовые карточки уже внутри и работают сразу.
+> 🔧 Карточки генерит **мой собственный GitHub Action**: дёргает GitHub API, рисует SVG и коммитит обновление прямо в репозиторий (`assets/generated/`). Сторонних сервисов нет — статистика не ляжет никогда. Стартовые карточки уже внутри и работают сразу. Обновление — **каждый час**.
 
 <div align="center">
 
-<a href="https://github.com/Zver1o7?tab=repositories"><img src="assets/generated/stats.svg?v=1767225600000" alt="Zver1o7 — live stats" /></a>
+<a href="https://github.com/Zver1o7?tab=repositories"><img src="assets/generated/stats.svg?v=10" alt="Zver1o7 — live stats" /></a>
 <br/>
 <a href="https://streak-stats.demolab.com?user=Zver1o7"><img src="https://streak-stats.demolab.com?user=Zver1o7&hide_border=true&background=0D1117&stroke=21262D&ring=FF7A18&fire=FF3D00&currStreakLabel=FF9E2C&sideLabels=E6EDF3&currStreakNum=FFB347&sideNums=E6EDF3&dates=8B949E" alt="GitHub Streak" /></a>
 <br/>
-<a href="https://github.com/Zver1o7?tab=repositories"><img src="assets/generated/langs.svg?v=1767225600000" alt="Zver1o7 — top languages" /></a>
+<a href="https://github.com/Zver1o7?tab=repositories"><img src="assets/generated/langs.svg?v=10" alt="Zver1o7 — top languages" /></a>
 
 </div>
 
@@ -125,19 +125,17 @@ const zver: Developer = {
 -->
 
 <div align="center">
-  <img src="assets/divider.svg?v=9" alt="divider" />
+  <img src="assets/divider.svg?v=10" alt="divider" />
 </div>
 
 ## 🦊 Охота за контрибуциями
 
 <div align="center">
-  <img src="assets/fox-run.svg?v=9" alt="Zver1o7 — fox run: лис прыгает через ящики и догоняет зайца" />
-</div>
-
+  <img src="assets/fox-run.svg?v=10" alt="Zver1o7 — fox run: лис прыгает через ящики и догоняет зайца" />
 </div>
 
 <div align="center">
-  <img src="assets/divider.svg?v=9" alt="divider" />
+  <img src="assets/divider.svg?v=10" alt="divider" />
 </div>
 
 ## 📡 Контакты
