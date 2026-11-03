@@ -104,11 +104,11 @@ const zver: Developer = {
 
 <div align="center">
 
-<a href="https://github.com/Zver1o7?tab=repositories"><img src="assets/generated/stats.svg?v=1793726926527" alt="Zver1o7 — live stats" /></a>
+<a href="https://github.com/Zver1o7?tab=repositories"><img src="assets/generated/stats.svg?v=1793746188591" alt="Zver1o7 — live stats" /></a>
 <br/>
 <a href="https://streak-stats.demolab.com?user=Zver1o7"><img src="https://streak-stats.demolab.com?user=Zver1o7&hide_border=true&background=0D1117&stroke=21262D&ring=FF7A18&fire=FF3D00&currStreakLabel=FF9E2C&sideLabels=E6EDF3&currStreakNum=FFB347&sideNums=E6EDF3&dates=8B949E" alt="GitHub Streak" /></a>
 <br/>
-<a href="https://github.com/Zver1o7?tab=repositories"><img src="assets/generated/langs.svg?v=1793726926527" alt="Zver1o7 — top languages" /></a>
+<a href="https://github.com/Zver1o7?tab=repositories"><img src="assets/generated/langs.svg?v=1793746188591" alt="Zver1o7 — top languages" /></a>
 
 </div>
 
