@@ -11,6 +11,9 @@ const USER = process.env.USER_NAME || 'Zver1o7';
 const TOKEN = process.env.GITHUB_TOKEN || '';
 const API = 'https://api.github.com';
 
+// СВОИ организации — по ним тоже считается статистика (через запятую)
+const ORG_NAMES = ['ArmagedonDev'];
+
 // Заголовки БЕЗ токена: все данные публичные, а токен Actions ограничен одним репо.
 // (без токена видны ВСЕ репозитории пользователя — иначе Python/другие репо теряются)
 const headers = {
@@ -153,7 +156,7 @@ function buildEmptyLangsCard(meta, date) {
   </text>
   ${legend}
 
-  <text x="30" y="${H - 18}" font-family="${MONO}" font-size="11" letter-spacing="2" fill="#6e7681">REPOS: ${meta.repos || 0} &#183; LANGS: ${meta.distinct || 0} &#183; COMMITS: ${meta.commits != null ? fmt(meta.commits) : '0'}</text>
+  <text x="30" y="${H - 18}" font-family="${MONO}" font-size="11" letter-spacing="2" fill="#6e7681">REPOS: ${meta.repos || 0} &#183; ORGS: ${meta.orgs || 0} &#183; LANGS: ${meta.distinct || 0} &#183; COMMITS: ${meta.commits != null ? fmt(meta.commits) : '0'}</text>
   <text x="890" y="${H - 18}" text-anchor="end" font-family="${MONO}" font-size="11" letter-spacing="2" fill="#6e7681">AUTO ${date}</text>
 </svg>`;
 }
@@ -217,7 +220,7 @@ function buildLangsCard(topLangs, meta = {}) {
   });
 
   const footer =
-    `<text x="30" y="${H - 18}" font-family="${MONO}" font-size="11" letter-spacing="2" fill="#6e7681">REPOS: ${meta.repos || 0} &#183; LANGS: ${meta.distinct || topLangs.length} &#183; COMMITS: ${meta.commits != null ? fmt(meta.commits) : '0'}</text>` +
+    `<text x="30" y="${H - 18}" font-family="${MONO}" font-size="11" letter-spacing="2" fill="#6e7681">REPOS: ${meta.repos || 0} &#183; ORGS: ${meta.orgs || 0} &#183; LANGS: ${meta.distinct || topLangs.length} &#183; COMMITS: ${meta.commits != null ? fmt(meta.commits) : '0'}</text>` +
     `<text x="890" y="${H - 18}" text-anchor="end" font-family="${MONO}" font-size="11" letter-spacing="2" fill="#6e7681">AUTO ${date}</text>`;
 
   return `<svg xmlns="http://www.w3.org/2000/svg" width="920" height="${H}" viewBox="0 0 920 ${H}" role="img" aria-label="top languages">
@@ -259,21 +262,53 @@ function buildLangsCard(topLangs, meta = {}) {
   } catch (e) {
     console.warn('repos fetch failed:', e.message);
   }
+
+  // репозитории организаций (публичные): ArmagedonDev + любое публичное членство
+  const orgList = [...ORG_NAMES];
+  try {
+    const meOrgs = await jget(`${API}/users/${USER}/orgs`);
+    for (const o of meOrgs) if (!orgList.includes(o.login)) orgList.push(o.login);
+  } catch (e) {
+    console.warn('orgs fetch failed:', e.message);
+  }
+  let orgRepos = [];
+  for (const orgName of orgList) {
+    try {
+      for (let p = 1; p <= 5; p++) {
+        const d = await jget(`${API}/orgs/${orgName}/repos?per_page=100&page=${p}&sort=updated`);
+        orgRepos = orgRepos.concat(d);
+        if (d.length < 100) break;
+      }
+    } catch (e) {
+      console.warn(`org ${orgName} repos failed:`, e.message);
+    }
+  }
+  orgRepos.forEach(r => { r.orgSource = 'ORG'; });
+  repos.forEach(r => { r.orgSource = null; });
+  repos = repos.concat(orgRepos);
   repos.sort((a, b) => b.stargazers_count - a.stargazers_count);
 
   const stars = repos.reduce((s, r) => s + r.stargazers_count, 0);
   const forks = repos.reduce((s, r) => s + r.forks_count, 0);
 
   let commits = 0;
-  try {
-    const d = await jget(`${API}/search/commits?q=author:${USER}&per_page=1`);
-    commits = d.total_count;
-  } catch (e) {
-    console.warn('commits search failed:', e.message);
+  // считаем коммиты по каждом репо (надёжнее search: у-search валидируетorg-квоу и иногда 422)
+  for (const r of repos) {
+    try {
+      let page = 1;
+      while (page <= 10) {
+        const d = await jget(`${API}/repos/${r.full_name}/commits?per_page=100&page=${page}`);
+        commits += d.length;
+        if (d.length < 100) break;
+        page++;
+      }
+    } catch (e) {
+      console.warn(`commits ${r.full_name} failed:`, e.message);
+    }
   }
 
   const langs = {};
-  for (const r of repos.slice(0, 30)) {
+  for (const r of repos.slice(0, 40)) {
     try {
       const d = await jget(`${API}/repos/${r.full_name}/languages`);
       for (const [l, b] of Object.entries(d)) langs[l] = (langs[l] || 0) + b;
@@ -282,7 +317,7 @@ function buildLangsCard(topLangs, meta = {}) {
     }
   }
   const langEntries = Object.entries(langs).sort((a, b) => b[1] - a[1]);
-  const langMeta = { repos: repos.length, distinct: langEntries.length, commits };
+  const langMeta = { repos: repos.length, distinct: langEntries.length, commits, orgs: orgList.length, orgNames: orgList.slice(0, 3).join('+') };
   const topLangs = langEntries.slice(0, 10);
 
   fs.mkdirSync(path.join(process.cwd(), 'out'), { recursive: true });
