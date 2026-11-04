@@ -2,7 +2,7 @@ name: Generate Stats
 
 on:
   schedule:
-    - cron: "0 * * * *" # каждый час
+    - cron: "0 * * * *" # каждый час (GitHub может задерживать запуск до ~30 мин)
   workflow_dispatch:
   push:
     branches:
@@ -22,6 +22,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # полная история — нужно для rebase при гонке push
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -40,14 +42,25 @@ jobs:
           cp out/stats.svg assets/generated/stats.svg
           cp out/langs.svg assets/generated/langs.svg
           rm -rf out
+          # сброс кэша картинок GitHub (camo): обновляем метки версии в README
           ts=$(date +%s%3N)
           sed -i -E "s/(assets\/generated\/(stats|langs)\.svg\?v=)[0-9]+/\1${ts}/g" README.md
+          sed -i -E "s/(assets\/(header|terminal|divider|fox-run)\.svg\?v=)[0-9]+/\1${ts}/g" README.md
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add assets/generated README.md
           if git diff --cached --quiet; then
             echo "No changes"
           else
-            git commit -m "Статистика: авто-обновление"
-            git push
+            git commit -m "📊 stats: auto-update"
+            # защита от гонки: main мог уйти вперёд, пока мы собирали карту
+            branch="$(git rev-parse --abbrev-ref HEAD)"
+            for i in 1 2 3; do
+              if git push; then
+                echo "pushed on attempt $i"
+                break
+              fi
+              echo "push отклонён (гонка с другим коммитом) — rebase + повтор $i"
+              git pull --rebase origin "$branch" || exit 1
+            done
           fi

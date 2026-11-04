@@ -100,7 +100,85 @@ function buildStatsCard({ stars, repos, forks, commits, followers }) {
 </svg>`;
 }
 
-const PALETTE = ['#ff9e2c', '#ff7a18', '#e8590c', '#ffb347', '#ffd8a8', '#c77b2a', '#ff3d00', '#d9a066', '#ffd166', '#b45309'];
+/* ---------- цвета языков ----------
+   Свой цвет на каждый язык (по мотивам GitHub Linguist, яркость подобрана под тёмный фон).
+   Внутри карточки оранжевый остаётся фирменным цветом темы (заголовки, рамка, итог). */
+const LANG_COLORS = {
+  javascript: '#f1e05a',
+  typescript: '#3178c6',
+  python: '#4b8bb9',
+  html: '#e44d26',
+  css: '#a06cd5',
+  scss: '#c6538c',
+  less: '#4fa83d',
+  vue: '#41b883',
+  svelte: '#ff6c37',
+  react: '#5ed3f3',
+  c: '#9aa3ad',
+  'c++': '#f34b7d',
+  'c#': '#43c561',
+  java: '#c9885a',
+  go: '#00add8',
+  rust: '#dea584',
+  php: '#8892d6',
+  ruby: '#e0565f',
+  shell: '#89e051',
+  bash: '#89e051',
+  powershell: '#4c9ae8',
+  batchfile: '#c1f12e',
+  lua: '#5674d1',
+  kotlin: '#a97bff',
+  swift: '#f05138',
+  dart: '#2fb9a8',
+  r: '#689ed8',
+  perl: '#3d91c9',
+  haskell: '#9d7cd8',
+  scala: '#dc4c5c',
+  elixir: '#a074c4',
+  markdown: '#5a8dee',
+  json: '#d7ba7d',
+  yaml: '#e05b5b',
+  toml: '#c05b32',
+  dockerfile: '#3d9bdb',
+  makefile: '#6ca83a',
+  roff: '#8b94a5',
+  sql: '#e38c00',
+  hcl: '#9a6cf0',
+  objectivec: '#5a8ff0',
+  fsharp: '#b78ae2',
+  groovy: '#4298b4',
+  handlebars: '#f7935e',
+  nix: '#7e7eff',
+  zig: '#ec915c',
+  vimscript: '#199f4b',
+  tex: '#4a77c4',
+  ini: '#a3a8b0',
+  plaintext: '#8b949e',
+  cplusplus: '#f34b7d',
+  csharp: '#43c561',
+};
+
+/* запасная палитра — для языков без известного цвета (стабильная, по хешу названия) */
+const LANG_FALLBACK = [
+  '#ff9e2c', '#2dd4bf', '#a78bfa', '#60a5fa', '#f472b6',
+  '#4ade80', '#ffd166', '#fb7185', '#38bdf8', '#ff7a18',
+];
+
+const normKey = (s) => String(s).trim().toLowerCase().replace(/[\s_-]+/g, '');
+const LANG_COLORS_NORM = {};
+for (const k of Object.keys(LANG_COLORS)) LANG_COLORS_NORM[normKey(k)] = LANG_COLORS[k];
+
+function hashStr(s) {
+  let h = 5381;
+  for (let i = 0; i < s.length; i++) h = ((h << 5) + h + s.charCodeAt(i)) >>> 0;
+  return h;
+}
+
+/** цвет языка: известный → из таблицы, иначе стабильный из палитры */
+function langColor(name) {
+  const k = normKey(name);
+  return LANG_COLORS_NORM[k] || LANG_FALLBACK[hashStr(k) % LANG_FALLBACK.length];
+}
 
 /* On an empty profile — a beautiful skeleton card: it fills automatically with the first code */
 function buildEmptyLangsCard(meta, date) {
@@ -163,14 +241,21 @@ function buildEmptyLangsCard(meta, date) {
 </svg>`;
 }
 
-function buildLangsCard(topLangs, meta = {}) {
+function buildLangsCard(allLangs, meta = {}) {
   const date = new Date().toISOString().slice(0, 10);
-  if (!topLangs.length) {
+  if (!allLangs.length) {
     return buildEmptyLangsCard(meta, date);
   }
 
+  /* карточка растёт по высоте под число языков (не больше MAX_LANGS строк) */
+  const MAX_LANGS = 15;
+  const topLangs = allLangs.slice(0, MAX_LANGS);
+  const extra = allLangs.length - topLangs.length;
+  const n = topLangs.length;
+
   const total = topLangs.reduce((s, x) => s + x[1], 0);
-  const H = 530;
+  const H = Math.max(530, 162 + 30 * n, 422 + 22 * Math.ceil(n / 2));
+  const dividerY2 = Math.max(385, 96 + n * 30 - 6);
   const maxBytes = topLangs[0][1];
 
   /* --- left: animated share bars --- */
@@ -180,28 +265,37 @@ function buildLangsCard(topLangs, meta = {}) {
     const pct = (bytes / total) * 100;
     const w = Math.max(10, Math.round((bytes / maxBytes) * 250));
     const name = lang.length > 14 ? lang.slice(0, 13) + '\u2026' : lang;
-    const color = PALETTE[i % PALETTE.length];
+    const color = langColor(lang);
     bars +=
       `<rect x="30" y="${y}" width="12" height="12" rx="2" fill="${color}"/>` +
       `<text x="50" y="${y + 11}" font-family="${MONO}" font-size="14" fill="#e6edf3">${esc(name)}</text>` +
       `<rect x="180" y="${y}" width="250" height="15" rx="7.5" fill="#21262d"/>` +
-      `<rect x="180" y="${y}" width="0" height="15" rx="7.5" fill="${color}">` +
+      `<rect x="180" y="${y}" width="250" height="15" rx="7.5" fill="${color}" opacity="0.14"/>` +
+      `<rect x="180" y="${y}" width="${w}" height="15" rx="7.5" fill="${color}">` +
       `<animate attributeName="width" from="0" to="${w}" dur="1s" begin="${(0.15 + i * 0.09).toFixed(2)}s" fill="freeze" calcMode="spline" keySplines="0.2 0.6 0.3 1" keyTimes="0;1"/>` +
       `</rect>` +
-      `<text x="500" y="${y + 11}" text-anchor="end" font-family="${MONO}" font-size="13" fill="#8b949e">${pct.toFixed(1)}%</text>`;
+      `<text x="500" y="${y + 11}" text-anchor="end" font-family="${MONO}" font-size="13" fill="${color}" opacity="0.92">${pct.toFixed(1)}%</text>`;
   });
 
   /* --- right: animated donut --- */
   const cx = 705, cy = 250, r = 96;
   let cum = 0;
-  let donut = `<circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="#21262d" stroke-width="32"/>`;
+  /* неоновое свечение колечка + два декоративных кольца-радара */
+  let donut =
+    `<defs><filter id="langNeon" x="-45%" y="-45%" width="190%" height="190%">` +
+    `<feGaussianBlur stdDeviation="5" result="b"/>` +
+    `<feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>` +
+    `<circle cx="${cx}" cy="${cy}" r="${r + 26}" fill="none" stroke="#ff7a18" stroke-opacity="0.10" stroke-width="1"/>` +
+    `<circle cx="${cx}" cy="${cy}" r="${r + 40}" fill="none" stroke="#ff7a18" stroke-opacity="0.07" stroke-width="1" stroke-dasharray="3 7"/>` +
+    `<circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="#21262d" stroke-width="32"/>`;
   topLangs.forEach(([lang, bytes], i) => {
     const pct = (bytes / total) * 100;
     const L = Math.max(pct, 0.5) * 0.97;
     const start = (cum * 3.6 - 90).toFixed(2);
     cum += pct;
+    const color = langColor(lang);
     donut +=
-      `<circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="${PALETTE[i % PALETTE.length]}" stroke-width="32" pathLength="100" stroke-dasharray="0 100" transform="rotate(${start} ${cx} ${cy})">` +
+      `<circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="${color}" stroke-width="32" pathLength="100" stroke-dasharray="${L.toFixed(2)} ${(100 - L).toFixed(2)}" transform="rotate(${start} ${cx} ${cy})" filter="url(#langNeon)">` +
       `<animate attributeName="stroke-dasharray" values="0 100;${L.toFixed(2)} ${(100 - L).toFixed(2)}" dur="${(0.8 + i * 0.1).toFixed(2)}s" begin="0.3s" fill="freeze"/>` +
       `</circle>`;
   });
@@ -215,10 +309,11 @@ function buildLangsCard(topLangs, meta = {}) {
     const y = 392 + row * 22;
     const name = lang.length > 10 ? lang.slice(0, 9) + '\u2026' : lang;
     const pct = ((bytes / total) * 100).toFixed(1);
+    const color = langColor(lang);
     legend +=
-      `<rect x="${x}" y="${y}" width="10" height="10" rx="2" fill="${PALETTE[i % PALETTE.length]}"/>` +
+      `<rect x="${x}" y="${y}" width="10" height="10" rx="2" fill="${color}"/>` +
       `<text x="${x + 16}" y="${y + 9}" font-family="${MONO}" font-size="11" fill="#c9d1d9">${esc(name)}</text>` +
-      `<text x="${x + 92}" y="${y + 9}" font-family="${MONO}" font-size="11" fill="#8b949e">${pct}%</text>`;
+      `<text x="${x + 92}" y="${y + 9}" font-family="${MONO}" font-size="11" fill="${color}" opacity="0.75">${pct}%</text>`;
   });
 
   const footer =
@@ -231,8 +326,8 @@ function buildLangsCard(topLangs, meta = {}) {
   <text x="890" y="32" text-anchor="end" font-family="${MONO}" font-size="11" letter-spacing="2" fill="#8b949e">TOTAL ${fmtBytes(total)}</text>
 
   <text x="30" y="74" font-family="${MONO}" font-size="13" letter-spacing="3" fill="#ff9e2c">SHARE OF CODE</text>
-  ${bars}
-  <line x1="525" y1="60" x2="525" y2="385" stroke="#21262d" stroke-width="1"/>
+  ${bars}${extra > 0 ? `\n  <text x="50" y="${96 + n * 30 + 14}" font-family="${MONO}" font-size="12" fill="#6e7681">+${extra} more languages</text>` : ''}
+  <line x1="525" y1="60" x2="525" y2="${dividerY2}" stroke="#21262d" stroke-width="1"/>
 
   <text x="705" y="74" text-anchor="middle" font-family="${MONO}" font-size="13" letter-spacing="3" fill="#ff9e2c">BY VOLUME</text>
   ${donut}
@@ -329,11 +424,10 @@ function buildLangsCard(topLangs, meta = {}) {
   }
   const langEntries = Object.entries(langs).sort((a, b) => b[1] - a[1]);
   const langMeta = { repos: repos.length, distinct: langEntries.length, commits, orgs: orgList.length, orgNames: orgList.slice(0, 3).join('+') };
-  const topLangs = langEntries.slice(0, 10);
 
   fs.mkdirSync(path.join(process.cwd(), 'out'), { recursive: true });
   fs.writeFileSync('out/stats.svg', buildStatsCard({ stars, repos: repos.length, forks, commits, followers }));
-  fs.writeFileSync('out/langs.svg', buildLangsCard(topLangs, langMeta));
+  fs.writeFileSync('out/langs.svg', buildLangsCard(langEntries, langMeta));
   console.log(`OK: stats.svg + langs.svg generated for ${USER}`);
 })().catch((e) => {
   console.error(e);
