@@ -1,25 +1,26 @@
 /**
  * gen-stats.js — генератор анимированных SVG-карточек статистики.
  * Запускается GitHub Actions'ом (см. .github/workflows/stats.yml).
- * ENV: USER_NAME (ник), GITHUB_TOKEN (токен из Actions).
+ * ENV: USER_NAME (ник), STATS_TOKEN (свой PAT — приватные репо и организации).
  * Выход: out/stats.svg, out/langs.svg (ветка stats-output).
  */
 const fs = require('fs');
 const path = require('path');
 
 const USER = process.env.USER_NAME || 'Zver1o7';
-const TOKEN = process.env.GITHUB_TOKEN || '';
+const TOKEN = process.env.STATS_TOKEN || '';
 const API = 'https://api.github.com';
 
 // СВОИ организации — по ним тоже считается статистика (через запятую)
 const ORG_NAMES = ['ArmagedonDev'];
 
-// Заголовки БЕЗ токена: все данные публичные, а токен Actions ограничен одним репо.
-// (без токена видны ВСЕ репозитории пользователя — иначе Python/другие репо теряются)
+// С STATS_TOKEN (свой PAT) GitHub отдаёт приватные репозитории и репо
+// организации ArmagedonDev. Без токена — все публичные, но без приватки.
 const headers = {
   Accept: 'application/vnd.github+json',
   'User-Agent': 'profile-stats-generator',
 };
+if (TOKEN) headers.Authorization = `Bearer ${TOKEN}`;
 
 async function jget(url) {
   const r = await fetch(url, { headers });
@@ -254,8 +255,12 @@ function buildLangsCard(topLangs, meta = {}) {
 
   let repos = [];
   try {
+    // с токеном — /user/repos (включая приватные и организации), без него — публичные
+    const listUrl = TOKEN
+      ? `${API}/user/repos?affiliation=owner,collaborator,organization_member`
+      : `${API}/users/${USER}/repos`;
     for (let p = 1; p <= 5; p++) {
-      const d = await jget(`${API}/users/${USER}/repos?per_page=100&page=${p}&sort=updated`);
+      const d = await jget(`${listUrl}?per_page=100&page=${p}&sort=updated`);
       repos = repos.concat(d);
       if (d.length < 100) break;
     }
@@ -286,13 +291,16 @@ function buildLangsCard(topLangs, meta = {}) {
   orgRepos.forEach(r => { r.orgSource = 'ORG'; });
   repos.forEach(r => { r.orgSource = null; });
   repos = repos.concat(orgRepos);
+  // дедупликация: с токеном /user/repos уже содержит репозитории организации
+  const seenFull = new Set();
+  repos = repos.filter(r => !seenFull.has(r.full_name) && (seenFull.add(r.full_name), true));
   repos.sort((a, b) => b.stargazers_count - a.stargazers_count);
 
   const stars = repos.reduce((s, r) => s + r.stargazers_count, 0);
   const forks = repos.reduce((s, r) => s + r.forks_count, 0);
 
   let commits = 0;
-  // считаем коммиты по каждом репо (надёжнее search: у-search валидируетorg-квоу и иногда 422)
+  // считаем коммиты по каждому репо (надёжнее search-API: тот иногда отдаёт 422)
   for (const r of repos) {
     try {
       let page = 1;
