@@ -32,7 +32,7 @@ jobs:
         run: node scripts/gen-stats.js
         env:
           USER_NAME: ${{ github.repository_owner }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          STATS_TOKEN: ${{ secrets.STATS_TOKEN }}
 
       - name: Commit cards into repo
         run: |
