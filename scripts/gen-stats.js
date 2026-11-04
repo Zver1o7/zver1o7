@@ -21,6 +21,7 @@ const headers = {
   'User-Agent': 'profile-stats-generator',
 };
 if (TOKEN) headers.Authorization = `Bearer ${TOKEN}`;
+console.log('auth:', TOKEN ? 'PAT present' : 'public only (секрет STATS_TOKEN не найден)');
 
 async function jget(url) {
   const r = await fetch(url, { headers });
@@ -257,16 +258,17 @@ function buildLangsCard(topLangs, meta = {}) {
   try {
     // с токеном — /user/repos (включая приватные и организации), без него — публичные
     const listUrl = TOKEN
-      ? `${API}/user/repos?affiliation=owner,collaborator,organization_member`
-      : `${API}/users/${USER}/repos`;
+      ? `${API}/user/repos?affiliation=owner,collaborator,organization_member&`
+      : `${API}/users/${USER}/repos?`;
     for (let p = 1; p <= 5; p++) {
-      const d = await jget(`${listUrl}?per_page=100&page=${p}&sort=updated`);
+      const d = await jget(`${listUrl}per_page=100&page=${p}&sort=updated`);
       repos = repos.concat(d);
       if (d.length < 100) break;
     }
   } catch (e) {
     console.warn('repos fetch failed:', e.message);
   }
+  console.log('personal repos:', repos.length, '->', repos.map(r => r.full_name).join(', ') || 'none');
 
   // репозитории организаций (публичные): ArmagedonDev + любое публичное членство
   const orgList = [...ORG_NAMES];
@@ -288,6 +290,7 @@ function buildLangsCard(topLangs, meta = {}) {
       console.warn(`org ${orgName} repos failed:`, e.message);
     }
   }
+  console.log('orgs:', orgList.join(', ') || 'none', '| org repos:', orgRepos.length, '->', orgRepos.map(r => r.full_name).join(', ') || 'none');
   orgRepos.forEach(r => { r.orgSource = 'ORG'; });
   repos.forEach(r => { r.orgSource = null; });
   repos = repos.concat(orgRepos);
